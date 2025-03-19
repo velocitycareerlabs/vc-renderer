@@ -1,0 +1,66 @@
+/* eslint-disable max-len */
+export const ISSUERS = {
+  'did:ion:EiBMsw27IKRYIdwUOfDeBd0LnWVeG2fPxxJi9L1fvjM20g': {
+    id: 'did:ion:EiBMsw27IKRYIdwUOfDeBd0LnWVeG2fPxxJi9L1fvjM20g',
+    permittedVelocityServiceCategory: ['Issuer', 'Inspector'],
+    name: 'Regular Issuer',
+    location: {
+      countryCode: 'BY',
+      regionCode: 'MN',
+    },
+    logo: 'https://media-exp1.licdn.com/dms/image/C4E0BAQGb2hBaIfTLMw',
+    website: 'https://www.velocitycareerlabs.com/',
+    contactEmail: 'vcl.devnet@gmail.com',
+    technicalEmail: 'vcl.devnet@gmail.com',
+    description: 'Org for tesing simpe Issuing (not Notary, not Identity)',
+    founded: '2023-07-12',
+    type: 'company',
+    physicalAddress: {
+      line1: 'xxxx',
+      line2: 'xxxx',
+      line3: 'xxxx',
+      regionCode: 'XX-XX',
+      countryCode: 'XX',
+      postcode: 'xxxx',
+    },
+    linkedInProfile: 'https://xxxx.xxx',
+    verifiableCredentialJwt:
+      'https://devregistrar.velocitynetwork.foundation/api/v0.6/organizations/did:ion:EiBMsw27IKRYIdwUOfDeBd0LnWVeG2fPxxJi9L1fvjM20g/resolve-vc/9c5d85e4-1930-4821-bcfb-e0b02e9bf8d8',
+    supportsSecureMessages: false,
+    createdAt: '2023-07-12T13:52:57.099Z',
+    updatedAt: '2023-07-13T10:47:22.460Z',
+  },
+  'did:ion:EiAehWmpX5mHBuc93SIhPXF8bsEx68G6mPcdIaLNGbozPA': {
+    id: 'did:ion:EiAehWmpX5mHBuc93SIhPXF8bsEx68G6mPcdIaLNGbozPA',
+    permittedVelocityServiceCategory: [
+      'CredentialAgentOperator',
+      'NotaryIdDocumentIssuer',
+      'NotaryContactIssuer',
+      'Inspector',
+      'HolderAppProvider',
+      'IdentityIssuer',
+    ],
+    name: 'Velocity Career Labs',
+    location: {
+      countryCode: 'IL',
+      regionCode: 'IL',
+    },
+    logo: 'https://media-exp1.licdn.com/dms/image/C4E0BAQGb2hBaIfTLMw',
+    founded: '2018',
+    type: 'company',
+    physicalAddress: {
+      line1: 'xxxx',
+      line2: 'xxxx',
+      line3: 'xxxx',
+      regionCode: 'XX-XX',
+      countryCode: 'XX',
+      postcode: 'xxxx',
+    },
+    linkedInProfile: 'https://xxxx.xxx',
+    verifiableCredentialJwt:
+      'https://devregistrar.velocitynetwork.foundation/api/v0.6/organizations/did:ion:EiAehWmpX5mHBuc93SIhPXF8bsEx68G6mPcdIaLNGbozPA/resolve-vc/d7ef4a99-69dd-43cb-82a0-a05dfcfae2e3',
+    supportsSecureMessages: false,
+    createdAt: '2022-01-31T12:31:15.493Z',
+    updatedAt: '2023-02-13T13:43:59.317Z',
+  },
+};

@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "target": "ESNext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "ES6"
+    ],
+    "jsx": "react-jsx",
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+
+    "moduleResolution": "node",
+  },
+  "include": ["src/**/*",],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".eslintrc.js",
+  ],
+  "parserOptions":  {
+    "ecmaVersion":  "2022",
+    "sourceType":  "module"
+  }
+}
