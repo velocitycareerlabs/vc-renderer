@@ -36,4 +36,5 @@ export const statusColor = {
   [VcStatusEnum.REPLACED]: '#FF9500',
   [VcStatusEnum.DELETED]: '#FF3824',
   [VcStatusEnum.EXPIRED]: '#FF3824',
+  [VcStatusEnum.FAILED]: '#FF3824',
 };

@@ -6,4 +6,5 @@ export enum VcStatusEnum {
   REPLACED = 'Replaced',
   DELETED = 'Deleted',
   EXPIRED = 'Expired',
+  FAILED = 'Failed',
 }

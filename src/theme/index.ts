@@ -45,6 +45,7 @@ declare module '@mui/material/styles' {
     [VcStatusEnum.REPLACED]: string;
     [VcStatusEnum.DELETED]: string;
     [VcStatusEnum.EXPIRED]: string;
+    [VcStatusEnum.FAILED]: string;
   }
 
   interface CategoryPalette {
@@ -119,6 +120,7 @@ export const theme = createTheme({
       [VcStatusEnum.REPLACED]: '#FF9500',
       [VcStatusEnum.DELETED]: '#FF3824',
       [VcStatusEnum.EXPIRED]: '#FF3824',
+      [VcStatusEnum.FAILED]: '#FF3824',
     },
     category: {
       [CredentialCategoryEnum.IDENTITY]: 'rgb(0 122 255 / 40%)',

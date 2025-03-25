@@ -15,6 +15,7 @@ export const style = StyleSheet.create({
     width: '100px',
     borderRadius: 16,
     border: '3.6px solid #ffffff',
+    background: '#fafafa',
     boxSizing: 'border-box',
     position: 'relative',
     zIndex: 2,

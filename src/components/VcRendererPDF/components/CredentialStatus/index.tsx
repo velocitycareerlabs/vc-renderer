@@ -13,6 +13,7 @@ const iconsMap = {
   [VcStatusEnum.REVOKED]: Revoked,
   [VcStatusEnum.VERIFIED]: Check,
   [VcStatusEnum.EXPIRED]: Expired,
+  [VcStatusEnum.FAILED]: Expired,
   [VcStatusEnum.DELETED]: null,
   [VcStatusEnum.SELF_REPORTED]: null,
 };

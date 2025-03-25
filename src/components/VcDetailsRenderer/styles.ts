@@ -101,6 +101,7 @@ export const HeaderContent: any = styled(Box)(({ theme }) => ({
     flexDirection: 'row',
   },
   '& #logoBig': {
+    height: '167px',
     maxHeight: '167px',
     width: '167px',
     zIndex: 2,

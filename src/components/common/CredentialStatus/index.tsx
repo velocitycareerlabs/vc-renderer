@@ -1,6 +1,4 @@
 import React from 'react';
-// import { useTranslation } from 'react-i18next';
-
 import { StatusBox } from './styles';
 import { Check, Replaced, Revoked, Expired } from '../../../assets/svg';
 import { VcStatusEnum } from '../../../types';
@@ -11,6 +9,7 @@ const iconsMap = {
   [VcStatusEnum.REVOKED]: <Revoked />,
   [VcStatusEnum.VERIFIED]: <Check />,
   [VcStatusEnum.EXPIRED]: <Expired />,
+  [VcStatusEnum.FAILED]: <Expired />,
   [VcStatusEnum.DELETED]: null,
   [VcStatusEnum.SELF_REPORTED]: null,
 };
@@ -21,8 +20,6 @@ type CredentialStatusType = {
 };
 
 export const CredentialStatus: React.FC<CredentialStatusType> = ({ status, isDetails }) => {
-  // const { t } = useTranslation();
-
   return (
     <StatusBox status={status} data-testid={status} isDetails={isDetails}>
       {iconsMap[status]} <span>{status}</span>
