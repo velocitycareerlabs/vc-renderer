@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { FieldList } from './components/FieldList';
 import { useTrackScrollToChangeBottomGradientVisibility } from './hooks/useTrackScrollToChangeBottomGradientVisibility';
@@ -9,7 +9,7 @@ import { Issuer } from './components/Issuer';
 import { theme } from '../../theme';
 import { useVcMapToDescriptorDetails } from '../../hooks';
 import { CloseWhite } from '../../assets/svg';
-import { VcDetailsRendererProps, VcRawData, VcPrepared, VcStatusEnum } from '../../types';
+import { VcDetailsRendererProps, VcRawData, VcPrepared } from '../../types';
 import {
   Content,
   BottomGradient,
@@ -42,9 +42,9 @@ import {
  * @returns - React.FC
  */
 
-export const VcDetailsRenderer = ({
+export const VcDetailsRenderer: React.FC<VcDetailsRendererProps> = ({
   vcData,
-  vcStatus = VcStatusEnum.VERIFIED,
+  vcStatus,
   categoryTitle,
   locale = 'en-US',
   style,
@@ -94,7 +94,7 @@ export const VcDetailsRenderer = ({
               <img id="logoBig" src={vcPrepared?.summary.logo} alt={vcPrepared?.summary.title} />
               <TagsContainer>
                 <CredentialCategory category={categoryTitle || 'Career Credential'} />
-                <CredentialStatus isDetails status={vcStatus || VcStatusEnum.VERIFIED} />
+                {vcStatus && <CredentialStatus isDetails status={vcStatus} />}
               </TagsContainer>
             </HeaderContent>
           </ModalHeader>

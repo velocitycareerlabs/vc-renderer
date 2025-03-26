@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { buildCredentialsSummary } from '../utils/buildCredentialsSummary';
 import { buildCredentialDetails } from '../utils/buildCredentialDetails';
-import { VcMapToDescriptorDetails } from '../types';
+import { VcMapToDescriptorDetails, Issuer } from '../types';
 
 /**
  * Renders credential details cards
@@ -14,11 +14,17 @@ import { VcMapToDescriptorDetails } from '../types';
 
 export const useVcMapToDescriptorDetails = () => {
   return useCallback<VcMapToDescriptorDetails>((vc, descriptor, issuer, locale) => {
-    const vsIssuer = !issuer?.id || issuer?.id !== vc.issuer.id ? null : issuer;
+    let vcIssuer: Issuer | null = null;
+
+    if (issuer?.id === vc.issuer.id) {
+      vcIssuer = issuer;
+    } else if (issuer?.alsoKnownAs?.includes(vc.issuer.id)) {
+      vcIssuer = issuer;
+    }
 
     return {
       details: buildCredentialDetails(vc, descriptor, locale),
-      summary: buildCredentialsSummary(vc, descriptor, vsIssuer, locale),
+      summary: buildCredentialsSummary(vc, descriptor, vcIssuer, locale),
     };
   }, []);
 };

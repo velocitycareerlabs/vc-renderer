@@ -2,6 +2,7 @@
 export const ISSUERS = {
   'did:ion:EiBMsw27IKRYIdwUOfDeBd0LnWVeG2fPxxJi9L1fvjM20g': {
     id: 'did:ion:EiBMsw27IKRYIdwUOfDeBd0LnWVeG2fPxxJi9L1fvjM20g',
+    alsoKnownAs: ['did:ion:EiBMsw27IKRYIdwUOfDeBd0LnWVeG2fPxxJi9L1fvjM20g'],
     permittedVelocityServiceCategory: ['Issuer', 'Inspector'],
     name: 'Regular Issuer',
     location: {
@@ -32,6 +33,7 @@ export const ISSUERS = {
   },
   'did:ion:EiAehWmpX5mHBuc93SIhPXF8bsEx68G6mPcdIaLNGbozPA': {
     id: 'did:ion:EiAehWmpX5mHBuc93SIhPXF8bsEx68G6mPcdIaLNGbozPA',
+    alsoKnownAs: ['did:ion:EiAehWmpX5mHBuc93SIhPXF8bsEx68G6mPcdIaLNGbozPA'],
     permittedVelocityServiceCategory: [
       'CredentialAgentOperator',
       'NotaryIdDocumentIssuer',
