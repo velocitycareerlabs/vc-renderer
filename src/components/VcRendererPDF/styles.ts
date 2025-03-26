@@ -21,6 +21,7 @@ export const style = StyleSheet.create({
     alignItems: 'flex-start',
     marginBottom: 24,
     gap: 6,
+    width: '408px',
   },
   containerDetails: {
     padding: 19,

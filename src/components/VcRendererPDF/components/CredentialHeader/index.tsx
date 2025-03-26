@@ -7,7 +7,9 @@ export const CredentialHeader = ({ vcPrepared, vcsStatus, categoriesTitle }) => 
   return (
     <View style={style.headerContainer}>
       {vcPrepared?.summary.logo && (
-        <Image style={style.headerLogo} src={vcPrepared?.summary.logo} />
+        <View style={style.headerLogoContainer}>
+          <Image style={style.headerLogo} src={vcPrepared?.summary.logo} />
+        </View>
       )}
       <View style={style.headerRight}>
         <View style={style.issuer}>

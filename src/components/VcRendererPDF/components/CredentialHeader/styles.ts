@@ -10,15 +10,19 @@ export const style = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  headerLogo: {
+  headerLogoContainer: {
     minHeight: '100px',
     width: '100px',
     borderRadius: 16,
     border: '3.6px solid #ffffff',
-    background: '#fafafa',
+    backgroundColor: '#fafafa',
     boxSizing: 'border-box',
     position: 'relative',
     zIndex: 2,
+    overflow: 'hidden',
+  },
+  headerLogo: {
+    flex: 1,
   },
   headerRight: {
     display: 'flex',
