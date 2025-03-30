@@ -137,5 +137,5 @@ export const typography = {
     lineHeight: '130%',
     letterSpacing: 0.1,
   },
-  fontFamily: ['SF Pro Display'].join(','),
+  fontFamily: ['SF Pro Display', 'SF Pro Text'].join(','),
 };
