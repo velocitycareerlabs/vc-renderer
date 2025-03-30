@@ -1,4 +1,4 @@
-import { useVcMapToDescriptorDetails } from './useVcMapToDescriptorDetails';
-import { useVcsMapToDescriptorsSummaries } from './useVcsMapToDescriptorsSummaries';
+import { usePrepareCredentialDetails } from './usePrepareCredentialDetails';
+import { usePrepareCredentialSummary } from './usePrepareCredentialSummary';
 
-export { useVcMapToDescriptorDetails, useVcsMapToDescriptorsSummaries };
+export { usePrepareCredentialDetails, usePrepareCredentialSummary };

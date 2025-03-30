@@ -1,48 +1,48 @@
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { VcDetailsRenderer } from '../src/components/VcDetailsRenderer';
+import { CredentialDetailsRenderer } from '../src/components/CredentialDetailsRenderer';
 import { CREDENTIALS, CREDENTIALS_MAPPED, ISSUERS, DESCRIPTORS } from './mocks';
-import { VcStatusEnum } from '../src/types';
+import { CredentialStatusEnum } from '../src/types';
 
 const vcPreparedMock = CREDENTIALS_MAPPED[0];
 const mockOnClose = jest.fn();
 
-const vcsRawDataMockAssessment = {
+const credentialsRawDataMockAssessment = {
   vc: CREDENTIALS[0],
   descriptor: DESCRIPTORS['AssessmentV1.1'],
   issuer: ISSUERS[CREDENTIALS[0].issuer.id],
 };
-const vcsRawDataMockEmail = {
+const credentialsRawDataMockEmail = {
   vc: CREDENTIALS[1],
   descriptor: DESCRIPTORS['EmailV1.0'],
   issuer: ISSUERS[CREDENTIALS[1].issuer.id],
 };
-const vcsRawDataMockOpenBadge = {
+const credentialsRawDataMockOpenBadge = {
   vc: CREDENTIALS[2],
   descriptor: DESCRIPTORS.OpenBadgeCredential,
   issuer: ISSUERS[CREDENTIALS[2].issuer.id],
 };
-const vcsRawDataMockMissingData = {
+const credentialsRawDataMockMissingData = {
   vc: CREDENTIALS[2],
   descriptor: DESCRIPTORS.OpenBadgeCredential,
   issuer: {},
 };
 
-describe('VcDetailsRenderer', () => {
+describe('CredentialDetailsRenderer', () => {
   const renderComponent = (props = {}) => {
     const defaultProps = {
-      vcData: { vcPrepared: vcPreparedMock },
-      vcStatus: VcStatusEnum.VERIFIED,
+      credentialData: { credentialPrepared: vcPreparedMock },
+      credentialStatus: CredentialStatusEnum.VERIFIED,
       categoryTitle: 'Assesment',
       onClose: jest.fn(),
     };
 
-    return render(<VcDetailsRenderer {...defaultProps} {...props} />);
+    return render(<CredentialDetailsRenderer {...defaultProps} {...props} />);
   };
 
   afterEach(cleanup);
 
-  it('renders correctly with vcPrepared', () => {
+  it('renders correctly with credentialPrepared', () => {
     renderComponent();
     // Credential header
     expect(screen.getByRole('img', { name: 'University of Massachusetts' })).toBeInTheDocument();
@@ -68,7 +68,7 @@ describe('VcDetailsRenderer', () => {
     expect(screen.getByText('Assessment description')).toBeInTheDocument();
   });
   it('renders correctly with vcRawData - Assesment', () => {
-    renderComponent({ vcData: vcsRawDataMockAssessment });
+    renderComponent({ credentialData: credentialsRawDataMockAssessment });
     // Credential header
     expect(screen.getByRole('img', { name: 'University of Massachusetts' })).toBeInTheDocument();
     expect(screen.getByRole('img', { name: 'Regular Issuer' })).toBeInTheDocument();
@@ -80,7 +80,7 @@ describe('VcDetailsRenderer', () => {
     expect(screen.getByText('Assessment description')).toBeInTheDocument();
   });
   it('renders correctly with vcRawData - Email', () => {
-    renderComponent({ vcData: vcsRawDataMockEmail });
+    renderComponent({ credentialData: credentialsRawDataMockEmail });
     // Credential header
     expect(screen.getByRole('img', { name: 'Email' })).toBeInTheDocument();
     expect(screen.getByRole('img', { name: 'Velocity Career Labs' })).toBeInTheDocument();
@@ -91,7 +91,7 @@ describe('VcDetailsRenderer', () => {
     expect(details).toBe(null);
   });
   it('renders correctly with vcRawData - OpenBadge', () => {
-    renderComponent({ vcData: vcsRawDataMockOpenBadge });
+    renderComponent({ credentialData: credentialsRawDataMockOpenBadge });
     // Credential header
     expect(screen.getByRole('img', { name: 'Badge' })).toBeInTheDocument();
     expect(screen.getByRole('img', { name: 'Regular Issuer' })).toBeInTheDocument();
@@ -110,7 +110,7 @@ describe('VcDetailsRenderer', () => {
   });
 
   it('renders related resources when available', () => {
-    renderComponent({ vcData: vcsRawDataMockOpenBadge });
+    renderComponent({ credentialData: credentialsRawDataMockOpenBadge });
     expect(screen.getByText('Attachments')).toBeInTheDocument();
     const attachments = screen.getAllByLabelText('credential-attachment');
     expect(attachments.length).toBe(6);
@@ -120,13 +120,13 @@ describe('VcDetailsRenderer', () => {
     const Footer = () => <div data-testid="footer">Footer</div>;
     const Sidebar = () => <div data-testid="sidebar">Sidebar</div>;
 
-    renderComponent({ vcData: vcsRawDataMockOpenBadge, Footer, Sidebar });
+    renderComponent({ credentialData: credentialsRawDataMockOpenBadge, Footer, Sidebar });
     expect(screen.getByTestId('footer')).toBeInTheDocument();
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
 
   it('renders credential details with some missing data', () => {
-    renderComponent({ vcData: vcsRawDataMockMissingData, categoryTitle: '' });
+    renderComponent({ credentialData: credentialsRawDataMockMissingData, categoryTitle: '' });
     // Credential header
     expect(
       screen.getByText('did:ion:EiBMsw27IKRYIdwUOfDeBd0LnWVeG2fPxxJi9L1fvjM20g'),

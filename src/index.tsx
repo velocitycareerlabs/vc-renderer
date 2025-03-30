@@ -1,14 +1,14 @@
-import { useVcsMapToDescriptorsSummaries, useVcMapToDescriptorDetails } from './hooks';
-import { VcDetailsRenderer } from './components/VcDetailsRenderer';
-import { VcsSummaryRenderer } from './components/VcsSummaryRenderer';
-import { VcRendererPDF } from './components/VcRendererPDF';
-import { VcStatusEnum } from './types';
+import { usePrepareCredentialSummary, usePrepareCredentialDetails } from './hooks';
+import { CredentialDetailsRenderer } from './components/CredentialDetailsRenderer';
+import { CredentialsSummaryRenderer } from './components/CredentialsSummaryRenderer';
+import { CredentialRendererPDF } from './components/CredentialRendererPDF';
+import { CredentialStatusEnum } from './types';
 
 export {
-  useVcsMapToDescriptorsSummaries,
-  useVcMapToDescriptorDetails,
-  VcDetailsRenderer,
-  VcsSummaryRenderer,
-  VcRendererPDF,
-  VcStatusEnum,
+  usePrepareCredentialSummary,
+  usePrepareCredentialDetails,
+  CredentialDetailsRenderer,
+  CredentialsSummaryRenderer,
+  CredentialRendererPDF,
+  CredentialStatusEnum,
 };

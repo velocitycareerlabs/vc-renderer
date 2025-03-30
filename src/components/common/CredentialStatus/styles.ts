@@ -1,11 +1,11 @@
 import { Box, Theme, css, styled } from '@mui/material';
-import { VcStatusEnum } from '../../../types';
+import { CredentialStatusEnum } from '../../../types';
 
-const getBoxColor = (theme: Theme, status: VcStatusEnum) => {
+const getBoxColor = (theme: Theme, status: CredentialStatusEnum) => {
   return theme.palette.status[status];
 };
 
-export const StatusBox: any = styled(Box)<{ status: VcStatusEnum; isDetails: string }>`
+export const StatusBox: any = styled(Box)<{ status: CredentialStatusEnum; isDetails: string }>`
   display: flex;
   align-items: center;
   justify-content: center;

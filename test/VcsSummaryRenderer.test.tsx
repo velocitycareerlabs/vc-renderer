@@ -1,17 +1,17 @@
 import React from 'react';
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { VcsSummaryRenderer } from '../src/components/VcsSummaryRenderer';
-import { VcsRawData } from '../src/types';
+import { CredentialsSummaryRenderer } from '../src/components/CredentialsSummaryRenderer';
+import { CredentialsRawData } from '../src/types';
 import { CREDENTIALS, CREDENTIALS_MAPPED, ISSUERS, DESCRIPTORS, STATUS } from './mocks';
 
-describe('VcsSummaryRenderer Component', () => {
+describe('CredentialsSummaryRenderer Component', () => {
   const mockOnClick = jest.fn();
   const mockOnSelect = jest.fn();
 
-  const vcsPreparedMock = CREDENTIALS_MAPPED;
+  const credentialsPrepared = CREDENTIALS_MAPPED;
 
-  const vcsRawDataMock: VcsRawData = {
+  const credentialsRawDataMock: CredentialsRawData = {
     vcs: CREDENTIALS,
     descriptors: DESCRIPTORS,
     issuers: ISSUERS,
@@ -19,13 +19,13 @@ describe('VcsSummaryRenderer Component', () => {
 
   const renderComponent = (props = {}) => {
     const defaultProps = {
-      vcsData: { vcsPrepared: vcsPreparedMock },
-      vcsStatus: STATUS,
+      credentialsData: { credentialsPrepared },
+      credentialsStatus: STATUS,
       onClick: mockOnClick,
       onSelect: mockOnSelect,
     };
 
-    return render(<VcsSummaryRenderer {...defaultProps} {...props} />);
+    return render(<CredentialsSummaryRenderer {...defaultProps} {...props} />);
   };
 
   afterEach(cleanup);
@@ -33,7 +33,7 @@ describe('VcsSummaryRenderer Component', () => {
     jest.clearAllMocks();
   });
 
-  it('renders 3 cards with vcsPrepared data', () => {
+  it('renders 3 cards with credentialsPrepared data', () => {
     renderComponent();
     const cards = screen.getAllByTestId('credential-card');
     expect(cards.length).toBe(3);
@@ -51,7 +51,7 @@ describe('VcsSummaryRenderer Component', () => {
   });
 
   it('renders with raw data and processes it', () => {
-    renderComponent({ vcsData: vcsRawDataMock });
+    renderComponent({ credentialsData: credentialsRawDataMock });
 
     const cards = screen.getAllByTestId('credential-card');
     expect(cards.length).toBe(7);

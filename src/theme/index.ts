@@ -1,7 +1,7 @@
 import { colors } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import { typography } from './typography';
-import { VcStatusEnum, CredentialCategoryEnum } from '../types';
+import { CredentialStatusEnum, CredentialCategoryEnum } from '../types';
 
 export type ThemeType = typeof theme;
 declare module '@mui/material/styles' {
@@ -38,14 +38,14 @@ declare module '@mui/material/styles' {
   }
 
   interface StatusPalette {
-    [VcStatusEnum.REVOKED]: string;
-    [VcStatusEnum.VERIFIED]: string;
-    [VcStatusEnum.SELF_REPORTED]: string;
-    [VcStatusEnum.OFFERED]: string;
-    [VcStatusEnum.REPLACED]: string;
-    [VcStatusEnum.DELETED]: string;
-    [VcStatusEnum.EXPIRED]: string;
-    [VcStatusEnum.FAILED]: string;
+    [CredentialStatusEnum.REVOKED]: string;
+    [CredentialStatusEnum.VERIFIED]: string;
+    [CredentialStatusEnum.SELF_REPORTED]: string;
+    [CredentialStatusEnum.OFFERED]: string;
+    [CredentialStatusEnum.REPLACED]: string;
+    [CredentialStatusEnum.DELETED]: string;
+    [CredentialStatusEnum.EXPIRED]: string;
+    [CredentialStatusEnum.FAILED]: string;
   }
 
   interface CategoryPalette {
@@ -113,14 +113,14 @@ export const theme = createTheme({
       main: 'rgba(118, 118, 128, 0.20)',
     },
     status: {
-      [VcStatusEnum.REVOKED]: '#FF3824',
-      [VcStatusEnum.VERIFIED]: '#34C759',
-      [VcStatusEnum.SELF_REPORTED]: '#20222866',
-      [VcStatusEnum.OFFERED]: '#007AFF',
-      [VcStatusEnum.REPLACED]: '#FF9500',
-      [VcStatusEnum.DELETED]: '#FF3824',
-      [VcStatusEnum.EXPIRED]: '#FF3824',
-      [VcStatusEnum.FAILED]: '#FF3824',
+      [CredentialStatusEnum.REVOKED]: '#FF3824',
+      [CredentialStatusEnum.VERIFIED]: '#34C759',
+      [CredentialStatusEnum.SELF_REPORTED]: '#20222866',
+      [CredentialStatusEnum.OFFERED]: '#007AFF',
+      [CredentialStatusEnum.REPLACED]: '#FF9500',
+      [CredentialStatusEnum.DELETED]: '#FF3824',
+      [CredentialStatusEnum.EXPIRED]: '#FF3824',
+      [CredentialStatusEnum.FAILED]: '#FF3824',
     },
     category: {
       [CredentialCategoryEnum.IDENTITY]: 'rgb(0 122 255 / 40%)',

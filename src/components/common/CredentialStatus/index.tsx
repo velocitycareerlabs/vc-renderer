@@ -1,21 +1,21 @@
 import React from 'react';
 import { StatusBox } from './styles';
 import { Check, Replaced, Revoked, Expired } from '../../../assets/svg';
-import { VcStatusEnum } from '../../../types';
+import { CredentialStatusEnum } from '../../../types';
 
 const iconsMap = {
-  [VcStatusEnum.OFFERED]: <Check />,
-  [VcStatusEnum.REPLACED]: <Replaced />,
-  [VcStatusEnum.REVOKED]: <Revoked />,
-  [VcStatusEnum.VERIFIED]: <Check />,
-  [VcStatusEnum.EXPIRED]: <Expired />,
-  [VcStatusEnum.FAILED]: <Expired />,
-  [VcStatusEnum.DELETED]: null,
-  [VcStatusEnum.SELF_REPORTED]: null,
+  [CredentialStatusEnum.OFFERED]: <Check />,
+  [CredentialStatusEnum.REPLACED]: <Replaced />,
+  [CredentialStatusEnum.REVOKED]: <Revoked />,
+  [CredentialStatusEnum.VERIFIED]: <Check />,
+  [CredentialStatusEnum.EXPIRED]: <Expired />,
+  [CredentialStatusEnum.FAILED]: <Expired />,
+  [CredentialStatusEnum.DELETED]: null,
+  [CredentialStatusEnum.SELF_REPORTED]: null,
 };
 
 type CredentialStatusType = {
-  status: VcStatusEnum;
+  status: CredentialStatusEnum;
   isDetails?: boolean;
 };
 

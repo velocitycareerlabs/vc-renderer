@@ -1,11 +1,11 @@
 import { render, screen, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { VcRendererPDF } from '../src/components/VcRendererPDF';
+import { CredentialRendererPDF } from '../src/components/CredentialRendererPDF';
 import { CREDENTIALS, CREDENTIALS_MAPPED, ISSUERS, DESCRIPTORS, STATUS } from './mocks';
 
-const vcsPreparedMock = CREDENTIALS_MAPPED;
+const credentialsPrepared = CREDENTIALS_MAPPED;
 
-const vcsRawDataMock = {
+const credentialsRawDataMock = {
   vcs: CREDENTIALS,
   descriptors: DESCRIPTORS,
   issuers: ISSUERS,
@@ -23,22 +23,22 @@ jest.mock('@react-pdf/renderer', () => ({
   Path: () => <path />,
 }));
 
-describe('VcRendererPDF', () => {
+describe('CredentialRendererPDF', () => {
   const renderComponent = (props = {}) => {
     const defaultProps = {
-      vcsData: { vcsPrepared: vcsPreparedMock },
-      vcsStatus: STATUS,
-      categoriesTitle: { [vcsPreparedMock[0].summary.id]: 'Assesment' },
+      credentialsData: { credentialsPrepared },
+      credentialsStatus: STATUS,
+      categoriesTitle: { [credentialsPrepared[0].summary.id]: 'Assesment' },
       applicantName: 'John Doe',
       userName: 'Jane Doe',
       appLogo: 'logo',
     };
 
-    return render(<VcRendererPDF {...defaultProps} {...props} />);
+    return render(<CredentialRendererPDF {...defaultProps} {...props} />);
   };
 
   afterEach(cleanup);
-  it('renders correctly VcRendererPDF', () => {
+  it('renders correctly CredentialRendererPDF', () => {
     renderComponent();
 
     // PageHeader
@@ -77,7 +77,7 @@ describe('VcRendererPDF', () => {
   });
 
   it('renders correctly with raw data and processes it', () => {
-    renderComponent({ vcsData: vcsRawDataMock });
+    renderComponent({ credentialsData: credentialsRawDataMock });
 
     const reportSubject = screen.getAllByText('Report Subject');
     expect(reportSubject).toHaveLength(CREDENTIALS.length);

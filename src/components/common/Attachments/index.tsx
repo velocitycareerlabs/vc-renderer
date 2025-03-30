@@ -46,11 +46,11 @@ export const getUrl = (relatedResource: any) => {
 };
 
 export const Attachments: React.FC<{
-  vcPrepared: any;
-}> = ({ vcPrepared }) => {
+  credentialPrepared: any;
+}> = ({ credentialPrepared }) => {
   const attachments = useMemo(
-    () => get(vcPrepared, 'summary.credential.relatedResource', []),
-    [vcPrepared],
+    () => get(credentialPrepared, 'summary.credential.relatedResource', []),
+    [credentialPrepared],
   );
   return attachments.length > 0 ? (
     <Container>
