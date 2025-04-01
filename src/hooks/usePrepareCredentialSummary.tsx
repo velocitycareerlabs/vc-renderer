@@ -1,6 +1,12 @@
 import { useCallback } from 'react';
 import { buildCredentialsSummary } from '../utils/buildCredentialsSummary';
-import { PrepareCredentialSummary, CredentialSummary } from '../types';
+import {
+  PrepareCredentialSummary,
+  CredentialSummary,
+  DisplayDescriptors,
+  Issuers,
+  Credential,
+} from '../types';
 
 /**
  * Renders credential summary cards
@@ -12,31 +18,43 @@ import { PrepareCredentialSummary, CredentialSummary } from '../types';
  * @returns {CredentialSummary[]} - array of CredentialSummary objects
  */
 
-export const usePrepareCredentialSummary = () => {
-  return useCallback<PrepareCredentialSummary>(
-    (vcs, descriptors, issuers, locale): CredentialSummary[] => {
-      return vcs.map((credential) => {
-        const type = credential.type[0];
-        const descriptor = descriptors[type];
-        const issuer = issuers[credential.issuer.id];
+const prepareCredentialSummary: PrepareCredentialSummary = (
+  vcs: Credential[],
+  descriptors: DisplayDescriptors,
+  issuers: Issuers,
+  locale?: string,
+): CredentialSummary[] => {
+  return vcs.map((credential) => {
+    const type = credential.type[0];
+    const descriptor = descriptors[type];
+    const issuer = issuers[credential.issuer.id];
 
-        if (!descriptor) {
-          return {
-            title: credential.type[0],
-            subTitle: credential.did || credential.id,
-            summaryDetail: credential.createdAt,
-            logo: '',
-            issuerLogo: issuer?.logo || '',
-            issuerName: issuer?.name || credential.issuer.id,
-            id: credential.id,
-            did: credential.did,
-            credential,
-            type: credential.type,
-          };
-        }
-        return buildCredentialsSummary(credential, descriptor, issuer, locale);
-      });
+    if (!descriptor) {
+      return {
+        title: credential.type[0],
+        subTitle: credential.did || credential.id,
+        summaryDetail: credential.createdAt,
+        logo: '',
+        issuerLogo: issuer?.logo || '',
+        issuerName: issuer?.name || credential.issuer.id,
+        id: credential.id,
+        did: credential.did,
+        credential,
+        type: credential.type,
+      };
+    }
+    return buildCredentialsSummary(credential, descriptor, issuer, locale);
+  });
+};
+
+/**
+ * @param {string} locale - locale string. Default is 'en-US'
+ */
+export const usePrepareCredentialSummary = (locale?: string) => {
+  return useCallback<PrepareCredentialSummary>(
+    (vcs, descriptors, issuers) => {
+      return prepareCredentialSummary(vcs, descriptors, issuers, locale);
     },
-    [],
+    [locale],
   );
 };

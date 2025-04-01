@@ -2,7 +2,7 @@ export type { Credential } from './Credential';
 export { CredentialCategoryEnum } from './CredentialCategoryEnum';
 export type { CredentialDetailsItem } from './CredentialDetailsItem';
 export type { CredentialPrepared } from './CredentialPrepared';
-export type { CredentialsStatus } from './CredentialStatus';
+export type { CredentialsStatus } from './CredentialsStatus';
 export type { CredentialSummary } from './CredentialSummary';
 export type { Dictionary } from './Dictionary';
 export type { DisplayDescriptor } from './DisplayDescriptor';

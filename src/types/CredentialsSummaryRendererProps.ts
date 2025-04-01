@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { CredentialsStatus } from './CredentialStatus';
+import { CredentialsStatus } from './CredentialsStatus';
 import { CredentialsData } from './CredentialsData';
 import { Dictionary } from './Dictionary';
 

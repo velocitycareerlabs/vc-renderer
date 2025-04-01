@@ -56,7 +56,7 @@ export const CredentialDetailsRenderer: React.FC<CredentialDetailsRendererProps>
   const [credentialPrepared, setCredentialPrepared] = useState<CredentialPrepared>();
 
   const scrollableCredentialContainerRef = useRef<HTMLDivElement>(null);
-  const mapToDescriptorsDetails = usePrepareCredentialDetails();
+  const mapToDescriptorsDetails = usePrepareCredentialDetails(locale);
   const { checkIfScrollReachedTheEnd, isScrollReachedTheEnd } =
     useTrackScrollToChangeBottomGradientVisibility(
       !!credentialPrepared,

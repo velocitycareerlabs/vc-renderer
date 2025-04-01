@@ -29,7 +29,7 @@ import { List } from './styles';
 export const CredentialsSummaryRenderer: React.FC<CredentialsSummaryRendererProps> = ({
   credentialsData,
   credentialsStatus,
-  locale,
+  locale = 'en-US',
   style,
   Footer,
   isSelectable,
@@ -39,7 +39,7 @@ export const CredentialsSummaryRenderer: React.FC<CredentialsSummaryRendererProp
   recentlyAddedCredentials = {},
 }: CredentialsSummaryRendererProps) => {
   const [credentialsPrepared, setCredentialsPrepared] = useState<CredentialPrepared[]>([]);
-  const mapToDescriptorsSummaries = usePrepareCredentialSummary();
+  const mapToDescriptorsSummaries = usePrepareCredentialSummary(locale);
 
   useEffect(() => {
     const vcs =

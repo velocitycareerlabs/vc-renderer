@@ -31,7 +31,7 @@ export const CredentialRendererPDF: React.FC<CredentialRendererPDFProps> = ({
   locale = 'en-US',
 }) => {
   const [credentialsPrepared, setCredentialsPrepared] = useState<CredentialPrepared[]>();
-  const mapToDescriptorsDetails = usePrepareCredentialDetails();
+  const mapToDescriptorsDetails = usePrepareCredentialDetails(locale);
 
   useEffect(() => {
     if ('credentialsPrepared' in credentialsData) {
