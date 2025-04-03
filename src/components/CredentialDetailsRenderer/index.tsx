@@ -8,6 +8,7 @@ import { Attachments } from '../common/Attachments';
 import { Issuer } from './components/Issuer';
 import { theme } from '../../theme';
 import { usePrepareCredentialDetails } from '../../hooks';
+import { setFallbackImage } from '../../utils/images';
 import { CloseWhite } from '../../assets/svg';
 import { CredentialDetailsRendererProps, CredentialRawData, CredentialPrepared } from '../../types';
 import {
@@ -99,6 +100,7 @@ export const CredentialDetailsRenderer: React.FC<CredentialDetailsRendererProps>
                 id="logoBig"
                 src={credentialPrepared?.summary.logo}
                 alt={credentialPrepared?.summary.title}
+                onError={setFallbackImage}
               />
               <TagsContainer>
                 <CredentialCategory category={categoryTitle || 'Career Credential'} />

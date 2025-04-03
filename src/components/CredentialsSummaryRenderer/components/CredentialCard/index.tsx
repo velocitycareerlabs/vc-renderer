@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Box, Typography } from '@mui/material';
 import { CredentialStatus } from '../../../common/CredentialStatus';
+import { setFallbackImage } from '../../../../utils/images';
 import { Check } from '../../../../assets/svg';
 import { CredentialStatusEnum } from '../../../../types';
 import {
@@ -10,7 +11,6 @@ import {
   Container,
   Content,
   Description,
-  // IconBox,
   Logo,
   NewCredentialStatusBox,
   SubTitle,
@@ -79,7 +79,7 @@ export const CredentialCard = ({
         data-testid="credential-card"
       >
         <TopBox>
-          {logo && !isShort ? <Logo src={logo} /> : null}
+          {logo && !isShort ? <Logo src={logo} onError={setFallbackImage} /> : null}
           <Box display="flex">
             <NewCredentialStatusBox isVisible={isNewCredential} />
             {status && <CredentialStatus status={status} />}

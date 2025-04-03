@@ -5,6 +5,7 @@ import { PageHeader } from './components/PageHeader';
 import { Attachments } from './components/Attachments';
 import { CredentialHeader } from './components/CredentialHeader';
 import { CredentialSidebar } from './components/CredentialSidebar';
+import { FieldList } from './components/FieldList';
 import { CredentialRendererPDFProps, CredentialsRawData, CredentialPrepared } from '../../types';
 import { style } from './styles';
 /**
@@ -66,13 +67,7 @@ export const CredentialRendererPDF: React.FC<CredentialRendererPDFProps> = ({
               </View>
               {credentialPrepared?.details?.length && (
                 <View style={[style.containerDetails]}>
-                  {credentialPrepared?.details.map((item, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <View style={style.containtItem} key={`${item.label} ${item.value} ${index}`}>
-                      <Text style={style.value}>{item.value}</Text>
-                      <Text style={style.label}>{item.label}</Text>
-                    </View>
-                  ))}
+                  <FieldList fields={credentialPrepared.details} aria-label="credential-details" />
                   <Attachments credentialsPrepared={credentialPrepared} />
                 </View>
               )}

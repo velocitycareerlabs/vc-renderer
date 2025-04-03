@@ -21,6 +21,15 @@ export const style = StyleSheet.create({
     zIndex: 2,
     overflow: 'hidden',
   },
+  fallbackImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderRadius: 16,
+    zIndex: -1,
+  },
   headerLogo: {
     flex: 1,
   },
@@ -39,11 +48,28 @@ export const style = StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center',
   },
-  issuerLogo: {
-    width: '30px',
+  issuerLogoContainer: {
     height: '30px',
+    width: '30px',
     borderRadius: '8px',
     border: '0.6px solid #ffffff',
+    backgroundColor: '#fafafa',
+    boxSizing: 'border-box',
+    position: 'relative',
+    zIndex: 2,
+    overflow: 'hidden',
+  },
+  issuerLogo: {
+    flex: 1,
+  },
+  issuerLogoFallback: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderRadius: 8,
+    zIndex: -1,
   },
   tags: {
     display: 'flex',

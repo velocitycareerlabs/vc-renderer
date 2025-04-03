@@ -24,9 +24,6 @@ export const style = StyleSheet.create({
     width: '408px',
   },
   containerDetails: {
-    padding: 19,
-    borderRadius: '9.56px',
-    border: '0.6px solid #e6e6e6',
     width: '408px',
   },
   containtItem: {
@@ -44,15 +41,5 @@ export const style = StyleSheet.create({
     fontSize: '17px',
     fontWeight: 400,
     letterSpacing: '0.2px',
-  },
-  label: {
-    fontSize: 9,
-    fontWeight: 400,
-    color: 'rgba(106, 106, 106, 1)',
-  },
-  value: {
-    fontSize: 9,
-    fontWeight: 400,
-    color: 'rgba(51, 51, 51, 1)',
   },
 });

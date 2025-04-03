@@ -7,7 +7,9 @@ export const style = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
     gap: 12,
-    marginTop: 12,
+    borderRadius: '9.56px',
+    border: '0.6px solid #e6e6e6',
+    padding: '16px',
   },
   attachment: {
     display: 'flex',
