@@ -3,7 +3,7 @@ import { DisplayDescriptor } from './DisplayDescriptor';
 import { Issuer } from './Issuer';
 
 export type CredentialRawData = {
-  vc: Credential;
+  credential: Credential;
   descriptor: DisplayDescriptor;
   issuer: Issuer;
 };

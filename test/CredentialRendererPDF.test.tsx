@@ -7,7 +7,7 @@ import { CREDENTIALS, CREDENTIALS_MAPPED, ISSUERS, DESCRIPTORS, STATUS } from '.
 const credentialsPrepared = CREDENTIALS_MAPPED;
 
 const credentialsRawDataMock = {
-  vcs: CREDENTIALS,
+  credentials: CREDENTIALS,
   descriptors: DESCRIPTORS,
   issuers: ISSUERS,
 };
@@ -84,10 +84,9 @@ describe('CredentialRendererPDF', () => {
     expect(reportSubject).toHaveLength(CREDENTIALS.length);
     const categoriesTitleFallback = screen.getAllByText('Career Credential');
     expect(categoriesTitleFallback.length).toBe(6);
-    expect(screen.getAllByText('verified').length).toBe(3);
+    expect(screen.getAllByText('verified').length).toBe(4);
     expect(screen.getAllByText('revoked').length).toBe(1);
     expect(screen.getAllByText('replaced').length).toBe(1);
     expect(screen.getAllByText('expired').length).toBe(1);
-    expect(screen.getAllByText('replaced').length).toBe(1);
   });
 });

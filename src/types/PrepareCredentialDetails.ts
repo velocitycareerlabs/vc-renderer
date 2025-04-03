@@ -4,7 +4,7 @@ import { DisplayDescriptor } from './DisplayDescriptor';
 import { Issuer } from './Issuer';
 
 export type PrepareCredentialDetails = (
-  vc: Credential,
+  credential: Credential,
   descriptor: DisplayDescriptor,
   issuer: Issuer,
   locale: string,

@@ -9,22 +9,22 @@ const vcPreparedMock = CREDENTIALS_MAPPED[0];
 const mockOnClose = jest.fn();
 
 const credentialsRawDataMockAssessment = {
-  vc: CREDENTIALS[0],
+  credential: CREDENTIALS[0],
   descriptor: DESCRIPTORS['AssessmentV1.1'],
   issuer: ISSUERS[CREDENTIALS[0].issuer.id],
 };
 const credentialsRawDataMockEmail = {
-  vc: CREDENTIALS[1],
+  credential: CREDENTIALS[1],
   descriptor: DESCRIPTORS['EmailV1.0'],
   issuer: ISSUERS[CREDENTIALS[1].issuer.id],
 };
 const credentialsRawDataMockOpenBadge = {
-  vc: CREDENTIALS[2],
+  credential: CREDENTIALS[2],
   descriptor: DESCRIPTORS.OpenBadgeCredential,
   issuer: ISSUERS[CREDENTIALS[2].issuer.id],
 };
 const credentialsRawDataMockMissingData = {
-  vc: CREDENTIALS[2],
+  credential: CREDENTIALS[2],
   descriptor: DESCRIPTORS.OpenBadgeCredential,
   issuer: {},
 };

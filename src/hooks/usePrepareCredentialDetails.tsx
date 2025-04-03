@@ -11,29 +11,29 @@ import {
 
 /**
  * Renders credential details card
- * @param {Credential} vc - expects raw credentials array
+ * @param {Credential} credential - expects raw credentials array
  * @param {DisplayDescriptor} descriptor - expects display-descriptor objects array
  * @param {Issuer} issuer - issuer data
  * @param {string}  [locale='en-US']  - locale string. Default is 'en-US'
  * @returns {CredentialPrepared} - object with summary and details keys
  */
 const prepareCredentialDetails: PrepareCredentialDetails = (
-  vc: Credential,
+  credential: Credential,
   descriptor: DisplayDescriptor,
   issuer: Issuer,
   locale: string = 'en-US',
 ): CredentialPrepared => {
   let vcIssuer: Issuer | null = null;
 
-  if (issuer?.id === vc.issuer.id) {
+  if (issuer?.id === credential.issuer.id) {
     vcIssuer = issuer;
-  } else if (issuer?.alsoKnownAs?.includes(vc.issuer.id)) {
+  } else if (issuer?.alsoKnownAs?.includes(credential.issuer.id)) {
     vcIssuer = issuer;
   }
 
   return {
-    details: buildCredentialDetails(vc, descriptor, locale),
-    summary: buildCredentialsSummary(vc, descriptor, vcIssuer, locale),
+    details: buildCredentialDetails(credential, descriptor, locale),
+    summary: buildCredentialsSummary(credential, descriptor, vcIssuer, locale),
   };
 };
 /**
@@ -41,7 +41,8 @@ const prepareCredentialDetails: PrepareCredentialDetails = (
  */
 export const usePrepareCredentialDetails = (locale: string = 'en-US') => {
   return useCallback<PrepareCredentialDetails>(
-    (vc, descriptor, issuer) => prepareCredentialDetails(vc, descriptor, issuer, locale),
+    (credential, descriptor, issuer) =>
+      prepareCredentialDetails(credential, descriptor, issuer, locale),
     [locale],
   );
 };

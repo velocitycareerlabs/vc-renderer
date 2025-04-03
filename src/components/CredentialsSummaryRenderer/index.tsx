@@ -12,15 +12,15 @@ import { List } from './styles';
 
 /**
  * Renders credentials summary cards
- * @param {CredentialsData} credentialsData - expects or raw data object with vcs,
+ * @param {CredentialsData} credentialsData - expects or raw data object with credentials,
  * descriptors and issuers keys or prepered data object with credentialsPrepared key
  * @param {CredentialsStatus} credentialsStatus - object where key is credential id and value is credential status
  * @param {string} locale - locale string
  * @param {Styles} style - object with styles
  * @param {React.FC} Footer - card actions component, for example share button
  * @param {boolean} isSelectable - if true, cards will have a tick element
- * @param {Function} onClick - function to handle card click and pass to handler vc id
- * @param {Function} onSelect - function to handle card select and pass to handler vc id
+ * @param {Function} onClick - function to handle card click and pass to handler credential id
+ * @param {Function} onSelect - function to handle card select and pass to handler credential id
  * @param {Dictionary<boolean>} credentialsSelected - object where key is credential id and value is boolean
  * @param {Dictionary<boolean>} recentlyAddedCredentials - object where key is credential id and value is boolean
  * @returns - React.FC
@@ -42,17 +42,19 @@ export const CredentialsSummaryRenderer: React.FC<CredentialsSummaryRendererProp
   const mapToDescriptorsSummaries = usePrepareCredentialSummary(locale);
 
   useEffect(() => {
-    const vcs =
+    const credentials =
       'credentialsPrepared' in credentialsData
         ? credentialsData.credentialsPrepared
         : mapToDescriptorsSummaries(
-            (credentialsData as CredentialsRawData).vcs,
+            (credentialsData as CredentialsRawData).credentials,
             (credentialsData as CredentialsRawData).descriptors,
             (credentialsData as CredentialsRawData).issuers,
             locale,
           ).map((summary) => ({ summary }));
 
-    setCredentialsPrepared((prev) => (JSON.stringify(prev) === JSON.stringify(vcs) ? prev : vcs));
+    setCredentialsPrepared((prev) =>
+      JSON.stringify(prev) === JSON.stringify(credentials) ? prev : credentials,
+    );
   }, [
     locale,
     mapToDescriptorsSummaries,

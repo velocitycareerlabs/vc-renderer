@@ -32,14 +32,14 @@ import {
 
 /**
  * Renders credential details cards
- * @param {CredentialData} credentialData - expects or raw data object with vc, descriptor and issuer keys or
+ * @param {CredentialData} credentialData - expects or raw data object with credential, descriptor and issuer keys or
  * prepered data object with credentialPrepared key
- * @param {CredentialStatus} credentialsStatus - object where key is vc id and value is vc status
- * @param {string} categoryTitle -vc category title
+ * @param {CredentialStatus} credentialsStatus - object where key is credential id and value is credential status
+ * @param {string} categoryTitle -credential category title
  * @param {string} locale - locale string
  * @param {Styles} style - object with styles
  * @param {React.FC} Footer - card Footer component, for example share button
- * @param {React.FC} Sidebar - card Sidebar component, for example vc verification info
+ * @param {React.FC} Sidebar - card Sidebar component, for example credential verification info
  * @param {function} onClose - function to close the modal
  * @returns - React.FC
  */
@@ -70,7 +70,7 @@ export const CredentialDetailsRenderer: React.FC<CredentialDetailsRendererProps>
     } else {
       const vcRawData = credentialData as CredentialRawData;
       const credential = mapToDescriptorsDetails(
-        vcRawData.vc,
+        vcRawData.credential,
         vcRawData.descriptor,
         vcRawData.issuer,
         locale,

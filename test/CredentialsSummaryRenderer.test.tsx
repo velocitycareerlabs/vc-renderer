@@ -12,7 +12,7 @@ describe('CredentialsSummaryRenderer Component', () => {
   const credentialsPrepared = CREDENTIALS_MAPPED;
 
   const credentialsRawDataMock: CredentialsRawData = {
-    vcs: CREDENTIALS,
+    credentials: CREDENTIALS,
     descriptors: DESCRIPTORS,
     issuers: ISSUERS,
   };
@@ -69,11 +69,10 @@ describe('CredentialsSummaryRenderer Component', () => {
     expect(screen.getByText('Badge')).toBeInTheDocument();
     expect(screen.getByText('Open Badge')).toBeInTheDocument();
 
-    expect(screen.getAllByText('verified').length).toBe(3);
+    expect(screen.getAllByText('verified').length).toBe(4);
     expect(screen.getAllByText('revoked').length).toBe(1);
     expect(screen.getAllByText('replaced').length).toBe(1);
     expect(screen.getAllByText('expired').length).toBe(1);
-    expect(screen.getAllByText('replaced').length).toBe(1);
     expect(screen.getAllByRole('checkbox').length).toBe(7);
   });
 

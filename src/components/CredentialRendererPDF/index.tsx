@@ -10,13 +10,13 @@ import { CredentialRendererPDFProps, CredentialsRawData, CredentialPrepared } fr
 import { style } from './styles';
 /**
  * PDF renderer component for Verifiable Credentials
- * @param {Dictionary<Array<React.ReactNode>>} sidebarItems Object with key as vc id and value as array of React.ReactNode
- * @param {CredentialsData} credentialsData Raw or prepared vcs data
- * @param {string} applicantName Name of the vcs applicant
+ * @param {Dictionary<Array<React.ReactNode>>} sidebarItems Object with key as credential id and value as array of React.ReactNode
+ * @param {CredentialsData} credentialsData Raw or prepared credentials data
+ * @param {string} applicantName Name of the credentials applicant
  * @param {string} userName Name of the logged in user
  * @param {string} appLogo Application logo URL
- * @param {Dictionary<string>} categoriesTitle Object with key as vc id and value as vc category
- * @param {Dictionary<CredentialStatusEnum>} props.credentialsStatus Object with key as vc id and value as vc status
+ * @param {Dictionary<string>} categoriesTitle Object with key as credential id and value as credential category
+ * @param {Dictionary<CredentialStatusEnum>} props.credentialsStatus Object with key as credential id and value as credential status
  * @param {string} [props.locale='en-US'] Locale for formatting
  * @returns {JSX.Element} Rendered PDF component
  */
@@ -39,10 +39,10 @@ export const CredentialRendererPDF: React.FC<CredentialRendererPDFProps> = ({
       setCredentialsPrepared(credentialsData.credentialsPrepared);
     } else {
       const credentialsRawData = credentialsData as CredentialsRawData;
-      const credentials = credentialsRawData.vcs.map((vc) => {
-        const issuer = credentialsRawData.issuers[vc.issuer.id];
-        const descriptor = credentialsRawData.descriptors[vc.type[0]];
-        return mapToDescriptorsDetails(vc, descriptor, issuer, locale);
+      const credentials = credentialsRawData.credentials.map((credential) => {
+        const issuer = credentialsRawData.issuers[credential.issuer.id];
+        const descriptor = credentialsRawData.descriptors[credential.type[0]];
+        return mapToDescriptorsDetails(credential, descriptor, issuer, locale);
       });
       setCredentialsPrepared(credentials);
     }

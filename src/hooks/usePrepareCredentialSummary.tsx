@@ -10,7 +10,7 @@ import {
 
 /**
  * Renders credential summary cards
- * @param {Credential[]} vcs - expects raw credentials array
+ * @param {Credential[]} credentials - expects raw credentials array
  * @param {DisplayDescriptors} descriptors - expects display-descriptor objects array.
  * Its is an application resposobility to provide all nessary descriptors
  * @param {Issuers} issuers - object with issuers data where key is an issuer did and value is issuer object
@@ -19,12 +19,12 @@ import {
  */
 
 const prepareCredentialSummary: PrepareCredentialSummary = (
-  vcs: Credential[],
+  credentials: Credential[],
   descriptors: DisplayDescriptors,
   issuers: Issuers,
   locale?: string,
 ): CredentialSummary[] => {
-  return vcs.map((credential) => {
+  return credentials.map((credential) => {
     const type = credential.type[0];
     const descriptor = descriptors[type];
     const issuer = issuers[credential.issuer.id];
@@ -52,8 +52,8 @@ const prepareCredentialSummary: PrepareCredentialSummary = (
  */
 export const usePrepareCredentialSummary = (locale?: string) => {
   return useCallback<PrepareCredentialSummary>(
-    (vcs, descriptors, issuers) => {
-      return prepareCredentialSummary(vcs, descriptors, issuers, locale);
+    (credentials, descriptors, issuers) => {
+      return prepareCredentialSummary(credentials, descriptors, issuers, locale);
     },
     [locale],
   );

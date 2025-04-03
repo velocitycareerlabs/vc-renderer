@@ -4,7 +4,7 @@ import { CredentialSummary } from './CredentialSummary';
 import { Credential } from './Credential';
 
 export type PrepareCredentialSummary = (
-  vcs: Credential[],
+  credentials: Credential[],
   descriptors: DisplayDescriptors,
   issuers: Issuers,
   locale?: string,
