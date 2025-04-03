@@ -32,6 +32,7 @@ export const style = StyleSheet.create({
   },
   headerLogo: {
     flex: 1,
+    borderRadius: 16,
   },
   headerRight: {
     display: 'flex',
@@ -61,6 +62,7 @@ export const style = StyleSheet.create({
   },
   issuerLogo: {
     flex: 1,
+    borderRadius: 8,
   },
   issuerLogoFallback: {
     position: 'absolute',
