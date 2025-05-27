@@ -32,7 +32,7 @@ export const ModalContent: any = styled(Box)<{ hasScrollBar: boolean }>`
     border-radius: 0px;
     margin: 16px;
     height: 100%;
-    padding: 0px;
+    padding: 10px 0;
     width: unset;
   }
 `;
@@ -207,7 +207,7 @@ export const TagsContainer: any = styled(Box)(({ theme }) => ({
     flexDirection: 'column',
     gap: '4px',
     alignItems: 'flex-end',
-    flexBasis: '50%',
+    flexBasis: 'auto',
     marginTop: 0,
     justifyContent: 'flex-start',
   },

@@ -20,6 +20,7 @@ export const IssuerName: any = styled(Typography)(({ theme }) => ({
   fontSize: '24px',
   padding: '10px 0',
   [theme.breakpoints.down('sm')]: {
-    padding: '0',
+    padding: '10px 0',
+    fontSize: '16px',
   },
 }));
