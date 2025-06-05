@@ -189,7 +189,7 @@ export const ScrollableContent: any = styled(Box)<{ hasScrollBar: boolean }>`
   }
 
   ${({ theme }) => theme.breakpoints.down('md')} {
-    max-height: 80vh;
+    max-height: 70vh;
   }
   ${({ theme }) => theme.breakpoints.down('sm')} {
     max-height: none;
