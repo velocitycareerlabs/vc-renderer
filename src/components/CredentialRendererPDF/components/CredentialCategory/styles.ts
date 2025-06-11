@@ -24,6 +24,7 @@ export const style = StyleSheet.create({
     letterSpacing: '0.1px',
     padding: '0 16px 0 10px',
     color: '#ffffff',
+    verticalAlign: 'sub',
   },
 });
 

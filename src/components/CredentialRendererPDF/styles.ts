@@ -5,7 +5,7 @@ export const style = StyleSheet.create({
     lineHeight: 1.5,
     flexDirection: 'column',
     width: '100%',
-    paddingBottom: 114,
+    paddingBottom: 30,
   },
   container: {
     display: 'flex',
@@ -13,7 +13,7 @@ export const style = StyleSheet.create({
     justifyContent: 'space-between',
   },
   content: {
-    margin: 24,
+    margin: '24 24 0 24',
   },
   containerSummary: {
     display: 'flex',

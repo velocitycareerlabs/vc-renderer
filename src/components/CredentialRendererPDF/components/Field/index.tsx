@@ -7,7 +7,7 @@ export const Field: React.FC<{
   value: string;
 }> = ({ label, value }) => {
   return (
-    <View style={style.fieldContainer}>
+    <View style={style.fieldContainer} wrap={false} minPresenceAhead={80}>
       <Text style={style.label}>{label}</Text>
       <Text style={style.value}>{value}</Text>
     </View>

@@ -18,6 +18,7 @@ import { style } from './styles';
  * @param {Dictionary<string>} categoriesTitle Object with key as credential id and value as credential category
  * @param {Dictionary<CredentialStatusEnum>} props.credentialsStatus Object with key as credential id and value as credential status
  * @param {string} [props.locale='en-US'] Locale for formatting
+ * @param {string} imageProxyUrl To avaid cors issue on image display
  * @returns {JSX.Element} Rendered PDF component
  */
 
@@ -30,6 +31,7 @@ export const CredentialRendererPDF: React.FC<CredentialRendererPDFProps> = ({
   categoriesTitle,
   credentialsStatus,
   locale = 'en-US',
+  imageProxyUrl,
 }) => {
   const [credentialsPrepared, setCredentialsPrepared] = useState<CredentialPrepared[]>();
   const mapToDescriptorsDetails = usePrepareCredentialDetails(locale);
@@ -57,8 +59,9 @@ export const CredentialRendererPDF: React.FC<CredentialRendererPDFProps> = ({
             credentialPrepared={credentialPrepared}
             credentialsStatus={credentialsStatus}
             categoriesTitle={categoriesTitle}
+            imageProxyUrl={imageProxyUrl}
           />
-          <View style={style.container}>
+          <View style={style.container} wrap>
             <View style={style.content}>
               <View style={style.containerSummary}>
                 <Text style={style.title}>{credentialPrepared?.summary.title}</Text>

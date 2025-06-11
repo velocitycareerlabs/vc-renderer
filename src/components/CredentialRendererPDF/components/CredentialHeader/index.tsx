@@ -1,24 +1,33 @@
+import React from 'react';
 import { Text, View, Image } from '@react-pdf/renderer';
 import { CredentialCategory } from '../CredentialCategory';
 import { CredentialStatus } from '../CredentialStatus';
 import FallbackImage from '../../../../assets/png/fallback.png';
+import { useImageUrls } from '../../hooks/useImageUrls';
 import { style } from './styles';
 
-export const CredentialHeader = ({ credentialPrepared, credentialsStatus, categoriesTitle }) => {
+export const CredentialHeader = ({
+  credentialPrepared,
+  credentialsStatus,
+  categoriesTitle,
+  imageProxyUrl,
+}) => {
+  const { logoSrc, issuerLogoSrc } = useImageUrls(credentialPrepared, imageProxyUrl);
+
   return (
     <View style={style.headerContainer}>
-      {credentialPrepared?.summary.logo && (
+      {logoSrc && (
         <View style={style.headerLogoContainer}>
-          <Image style={style.headerLogo} src={credentialPrepared?.summary.logo} />
+          <Image style={style.headerLogo} src={logoSrc} />
           <Image style={style.fallbackImage} src={FallbackImage} />
         </View>
       )}
       <View style={style.headerRight}>
         <View style={style.issuer}>
           <Text>{credentialPrepared?.summary.issuerName}</Text>
-          {credentialPrepared?.summary.issuerLogo && (
+          {issuerLogoSrc && (
             <View style={style.issuerLogoContainer}>
-              <Image style={style.issuerLogo} src={credentialPrepared?.summary.issuerLogo} />
+              <Image style={style.issuerLogo} src={issuerLogoSrc} />
               <Image style={style.issuerLogoFallback} src={FallbackImage} />
             </View>
           )}

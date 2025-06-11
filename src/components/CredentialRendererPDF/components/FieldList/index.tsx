@@ -66,7 +66,7 @@ export const FieldList: React.FC<{
         const [firstField, ...restFields] = groupFields;
         return (
           <View style={[styles.fields, styles.accordion]} key={groupKey}>
-            <View style={styles.accordionSummary}>
+            <View style={styles.accordionSummary} minPresenceAhead={80}>
               <Text style={styles.accordionTitle}>{firstField.value!}</Text>
             </View>
             <View style={styles.accordionDetails}>

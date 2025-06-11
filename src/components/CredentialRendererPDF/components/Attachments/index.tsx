@@ -15,7 +15,7 @@ export const Attachments = ({ credentialsPrepared }) => {
     [credentialsPrepared],
   );
   return attachments.length > 0 ? (
-    <View style={style.container}>
+    <View style={style.container} wrap={false}>
       <Text style={style.label}>Attachments</Text>
       {attachments.map((attachment) => (
         <View key={attachment.id} style={style.attachment}>

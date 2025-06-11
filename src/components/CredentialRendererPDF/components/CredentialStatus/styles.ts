@@ -23,6 +23,7 @@ export const style = StyleSheet.create({
     marginLeft: '5px',
     padding: '0 16px 0 0px',
     color: '#ffffff',
+    verticalAlign: 'sub',
   },
 });
 

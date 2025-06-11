@@ -13,4 +13,5 @@ export type CredentialRendererPDFProps = {
   applicantName: string;
   userName: string;
   appLogo: string;
+  imageProxyUrl?: string;
 };
