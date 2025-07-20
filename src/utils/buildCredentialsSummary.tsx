@@ -14,7 +14,11 @@ export const buildCredentialsSummary = (
 
   const issuerPrepared = issuer?.name
     ? issuer
-    : { name: credential.issuer.id, id: credential.issuer.id, logo: '' };
+    : {
+        name: credential.issuer.id,
+        id: credential.issuer.id,
+        logo: '',
+      };
 
   const credentialWithIssuer = {
     ...credential,
@@ -30,6 +34,9 @@ export const buildCredentialsSummary = (
     locale,
     'logo',
   ).value;
+
+  const brandLogoFromCredential = credential.issuer?.image;
+  const brandNameFromCredential = credential.issuer?.name;
 
   return {
     title: credentialValueFromJSONPath(displayDescriptor, credentialWithIssuer, locale, 'title')
@@ -48,10 +55,10 @@ export const buildCredentialsSummary = (
     ).value,
     logo:
       logoFromCredential === '-' || !logoFromCredential
-        ? get(issuerPrepared, 'logo')
+        ? brandLogoFromCredential || get(issuerPrepared, 'logo')
         : logoFromCredential,
-    issuerLogo: get(issuerPrepared, 'logo'),
-    issuerName: get(issuerPrepared, 'name'),
+    issuerLogo: brandLogoFromCredential || get(issuerPrepared, 'logo'),
+    issuerName: brandNameFromCredential || get(issuerPrepared, 'name'),
     id: credential.id,
     did: credential.did,
     credential,
