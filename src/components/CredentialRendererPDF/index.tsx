@@ -7,6 +7,7 @@ import { CredentialHeader } from './components/CredentialHeader';
 import { CredentialSidebar } from './components/CredentialSidebar';
 import { FieldList } from './components/FieldList';
 import { CredentialRendererPDFProps, CredentialsRawData, CredentialPrepared } from '../../types';
+import { Footer } from './components/Footer';
 import { style } from './styles';
 /**
  * PDF renderer component for Verifiable Credentials
@@ -19,6 +20,8 @@ import { style } from './styles';
  * @param {Dictionary<CredentialStatusEnum>} props.credentialsStatus Object with key as credential id and value as credential status
  * @param {string} [props.locale='en-US'] Locale for formatting
  * @param {string} imageProxyUrl To avaid cors issue on image display
+ * @param {Dictionary<React.ReactNode>} footerItems Object with key as credential id and value as array of React.ReactNode.
+ * Optional footerItems for displaying footer content in the PDF
  * @returns {JSX.Element} Rendered PDF component
  */
 
@@ -32,6 +35,7 @@ export const CredentialRendererPDF: React.FC<CredentialRendererPDFProps> = ({
   credentialsStatus,
   locale = 'en-US',
   imageProxyUrl,
+  footerItems,
 }) => {
   const [credentialsPrepared, setCredentialsPrepared] = useState<CredentialPrepared[]>();
   const mapToDescriptorsDetails = usePrepareCredentialDetails(locale);
@@ -74,6 +78,7 @@ export const CredentialRendererPDF: React.FC<CredentialRendererPDFProps> = ({
                   <Attachments credentialsPrepared={credentialPrepared} />
                 </View>
               )}
+              <Footer id={credentialPrepared.summary.id} footerItems={footerItems} />
             </View>
             <CredentialSidebar id={credentialPrepared.summary.id} sidebarItems={sidebarItems} />
           </View>

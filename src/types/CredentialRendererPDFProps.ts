@@ -14,4 +14,5 @@ export type CredentialRendererPDFProps = {
   userName: string;
   appLogo: string;
   imageProxyUrl?: string;
+  footerItems?: Dictionary<React.ReactNode>;
 };
