@@ -34,8 +34,8 @@ module.exports = {
     [
       'jest-junit',
       {
-        outputName: `${packagejson.name.split('/')[1]}-junit.xml`,
-        outputDirectory: '<rootDir>/../../test-results',
+        outputName: 'test-results.junit.xml',
+        outputDirectory: '.',
         ancestorSeparator: ' › ',
         suiteNameTemplate: '{filepath}',
         classNameTemplate: '{classname}',
