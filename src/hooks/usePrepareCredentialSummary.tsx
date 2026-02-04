@@ -23,8 +23,9 @@ const prepareCredentialSummary: PrepareCredentialSummary = (
   descriptors: DisplayDescriptors,
   issuers: Issuers,
   locale?: string,
-): CredentialSummary[] => {
-  return credentials.map((credential) => {
+): CredentialSummary[] =>
+  // eslint-disable-next-line complexity
+  credentials.map((credential) => {
     const type = credential.type[0];
     const descriptor = descriptors[type];
     const issuer = issuers[credential.issuer.id];
@@ -45,16 +46,12 @@ const prepareCredentialSummary: PrepareCredentialSummary = (
     }
     return buildCredentialsSummary(credential, descriptor, issuer, locale);
   });
-};
-
 /**
  * @param {string} locale - locale string. Default is 'en-US'
  */
-export const usePrepareCredentialSummary = (locale?: string) => {
-  return useCallback<PrepareCredentialSummary>(
-    (credentials, descriptors, issuers) => {
-      return prepareCredentialSummary(credentials, descriptors, issuers, locale);
-    },
+export const usePrepareCredentialSummary = (locale?: string) =>
+  useCallback<PrepareCredentialSummary>(
+    (credentials, descriptors, issuers) =>
+      prepareCredentialSummary(credentials, descriptors, issuers, locale),
     [locale],
   );
-};

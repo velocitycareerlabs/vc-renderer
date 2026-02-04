@@ -7,13 +7,11 @@ export const Issuer = ({
 }: {
   issuerName?: string;
   issuerLogo?: string;
-}) => {
-  return (
-    <IssuerContainer>
-      <IssuerName>{issuerName}</IssuerName>
-      {issuerLogo && (
-        <img id="logoSmall" src={issuerLogo} alt={issuerName} onError={setFallbackImage} />
-      )}
-    </IssuerContainer>
-  );
-};
+}) => (
+  <IssuerContainer>
+    <IssuerName>{issuerName}</IssuerName>
+    {issuerLogo && (
+      <img id="logoSmall" src={issuerLogo} alt={issuerName} onError={setFallbackImage} />
+    )}
+  </IssuerContainer>
+);

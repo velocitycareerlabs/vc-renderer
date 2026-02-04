@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Page, View, Text } from '@react-pdf/renderer';
 import { usePrepareCredentialDetails } from '../../hooks';
+import { CredentialRendererPDFProps, CredentialsRawData, CredentialPrepared } from '../../types';
 import { PageHeader } from './components/PageHeader';
 import { Attachments } from './components/Attachments';
 import { CredentialHeader } from './components/CredentialHeader';
 import { CredentialSidebar } from './components/CredentialSidebar';
 import { FieldList } from './components/FieldList';
-import { CredentialRendererPDFProps, CredentialsRawData, CredentialPrepared } from '../../types';
 import { Footer } from './components/Footer';
 import { style } from './styles';
 /**
@@ -56,6 +56,7 @@ export const CredentialRendererPDF: React.FC<CredentialRendererPDFProps> = ({
 
   return credentialsPrepared ? (
     <>
+      {/* eslint-disable-next-line complexity */}
       {credentialsPrepared.map((credentialPrepared) => (
         <Page size="A4" style={style.page} wrap key={credentialPrepared.summary.id}>
           <PageHeader applicantName={applicantName} loggedInUser={userName} logo={appLogo} />

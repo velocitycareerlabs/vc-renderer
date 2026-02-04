@@ -1,9 +1,8 @@
-import { Box, Theme, css, styled } from '@mui/material';
+import { Box, css, styled } from '@mui/material';
+import type { Theme } from '@mui/material/styles';
 import { CredentialStatusEnum } from '../../../types';
 
-const getBoxColor = (theme: Theme, status: CredentialStatusEnum) => {
-  return theme.palette.status[status];
-};
+const getBoxColor = (theme: Theme, status: CredentialStatusEnum) => theme.palette.status[status];
 
 export const StatusBox: any = styled(Box)<{ status: CredentialStatusEnum; isDetails: string }>`
   display: flex;

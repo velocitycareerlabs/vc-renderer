@@ -1,7 +1,7 @@
 import { reduce } from 'lodash-es';
+import { Credential, DisplayDescriptor, DisplayDescriptorPropertyItem } from '../types';
 import { getLocale } from './dates';
 import { credentialValueFromJSONPath } from './credentialValueFromJSONPath';
-import { Credential, DisplayDescriptor, DisplayDescriptorPropertyItem } from '../types';
 
 export const buildCredentialDetails = (
   credential: Credential,

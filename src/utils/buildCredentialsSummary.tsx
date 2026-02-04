@@ -1,9 +1,9 @@
 import { get } from 'lodash-es';
-
+import { Issuer, CredentialSummary, DisplayDescriptor, Credential } from '../types';
 import { credentialValueFromJSONPath } from './credentialValueFromJSONPath';
 import { getLocale } from './dates';
-import { Issuer, CredentialSummary, DisplayDescriptor, Credential } from '../types';
 
+// eslint-disable-next-line complexity
 export const buildCredentialsSummary = (
   credential: Credential,
   displayDescriptor: DisplayDescriptor,

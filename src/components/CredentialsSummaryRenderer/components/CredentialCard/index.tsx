@@ -19,6 +19,7 @@ import {
   FooterBox,
 } from './styles';
 
+// eslint-disable-next-line complexity
 export const CredentialCard = ({
   id,
   logo,

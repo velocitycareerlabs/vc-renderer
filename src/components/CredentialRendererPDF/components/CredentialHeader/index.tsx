@@ -6,6 +6,7 @@ import FallbackImage from '../../../../assets/png/fallback.png';
 import { useImageUrls } from '../../hooks/useImageUrls';
 import { style } from './styles';
 
+// eslint-disable-next-line complexity
 export const CredentialHeader = ({
   credentialPrepared,
   credentialsStatus,

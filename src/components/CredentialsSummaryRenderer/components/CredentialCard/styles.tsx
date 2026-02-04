@@ -1,4 +1,4 @@
-import { Box, BoxProps, CardActionArea, IconButton, Typography, styled } from '@mui/material';
+import { Box, type BoxProps, CardActionArea, IconButton, Typography, styled } from '@mui/material';
 import { Styles } from '../../../../types';
 import { NewCredential } from '../NewCredential';
 
@@ -28,7 +28,8 @@ export const ActionContainer: any = styled(CardActionArea)<{ selected: boolean }
   background: ${({ theme }) => theme.palette.background.default};
 
   &:hover {
-    box-shadow: 0px 2px 10px 0px ${({ theme }) => theme.customColors.shadow1},
+    box-shadow:
+      0px 2px 10px 0px ${({ theme }) => theme.customColors.shadow1},
       0px 1px 2px 0px ${({ theme }) => theme.customColors.shadow2};
   }
   position: relative;

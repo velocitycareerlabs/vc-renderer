@@ -53,6 +53,4 @@ export const formatDateFromShortToLongNames = (date: string) => {
   }${Number(duration) > 1 ? 's' : ''}`;
 };
 
-export const getLocale = () => {
-  return 'en-US';
-};
+export const getLocale = () => 'en-US';

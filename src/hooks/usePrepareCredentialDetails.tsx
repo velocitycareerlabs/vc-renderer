@@ -17,6 +17,7 @@ import {
  * @param {string}  [locale='en-US']  - locale string. Default is 'en-US'
  * @returns {CredentialPrepared} - object with summary and details keys
  */
+// eslint-disable-next-line complexity
 const prepareCredentialDetails: PrepareCredentialDetails = (
   credential: Credential,
   descriptor: DisplayDescriptor,
@@ -39,10 +40,9 @@ const prepareCredentialDetails: PrepareCredentialDetails = (
 /**
  * @param {string} [locale='en-US'] - locale string. Default is 'en-US'
  */
-export const usePrepareCredentialDetails = (locale: string = 'en-US') => {
-  return useCallback<PrepareCredentialDetails>(
+export const usePrepareCredentialDetails = (locale: string = 'en-US') =>
+  useCallback<PrepareCredentialDetails>(
     (credential, descriptor, issuer) =>
       prepareCredentialDetails(credential, descriptor, issuer, locale),
     [locale],
   );
-};

@@ -1,4 +1,4 @@
-import { Box, BoxProps, styled } from '@mui/material';
+import { Box, type BoxProps, styled } from '@mui/material';
 
 export const NewCredentialContainer: any = styled(Box)<BoxProps>`
   display: flex;

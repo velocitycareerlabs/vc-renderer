@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { usePrepareCredentialSummary } from '../../hooks';
 import { theme } from '../../theme';
-import { CredentialCard } from './components/CredentialCard';
 import {
   CredentialsSummaryRendererProps,
   CredentialsRawData,
   CredentialPrepared,
 } from '../../types';
+import { CredentialCard } from './components/CredentialCard';
 import { List } from './styles';
 
 /**

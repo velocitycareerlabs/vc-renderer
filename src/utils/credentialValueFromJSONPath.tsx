@@ -1,4 +1,5 @@
 import { get, isArray, isDate, isNumber, isString, includes, filter, toString } from 'lodash-es';
+import { DisplayDescriptor, DisplayDescriptorPropertyItem } from '../types';
 import { selectFirstMatchingPath } from './selectFirstMatchingPath';
 import {
   formatDateByRegion,
@@ -8,15 +9,12 @@ import {
   parseYearMonthDateOnlyStringToLocalDate,
   DATE_FORMATS,
 } from './dates';
-import { DisplayDescriptor, DisplayDescriptorPropertyItem } from '../types';
 
 const getDisplayDescriptorFieldByObjectPath = (
   displayDescriptor: DisplayDescriptor | DisplayDescriptorPropertyItem,
   field: string,
   path: keyof DisplayDescriptor | string = '',
-) => {
-  return get(displayDescriptor, [...(path ? [path] : []), field]);
-};
+) => get(displayDescriptor, [...(path ? [path] : []), field]);
 
 const formatValueIfDate = (value: string, format: string, dateFormat: string) => {
   if (isYearMonthDateFormat(value)) {
@@ -38,6 +36,7 @@ const formatValueIfDate = (value: string, format: string, dateFormat: string) =>
   return value;
 };
 
+// eslint-disable-next-line complexity
 export const credentialValueFromJSONPath = (
   displayDescriptor: DisplayDescriptor | DisplayDescriptorPropertyItem,
   subject: object,
@@ -76,15 +75,13 @@ export const credentialValueFromJSONPath = (
   }
 
   if (isArrayOfObjects) {
-    return finalValue.map((val: any) => {
-      return {
-        value: toString(val[0]),
-        isImgLink,
-        index: val[1],
-        parent: val[2],
-        ...labelAndSchemaProperties,
-      };
-    });
+    return finalValue.map((val: any) => ({
+      value: toString(val[0]),
+      isImgLink,
+      index: val[1],
+      parent: val[2],
+      ...labelAndSchemaProperties,
+    }));
   }
 
   if (isArray(finalValue)) {

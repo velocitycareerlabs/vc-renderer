@@ -1,4 +1,4 @@
-import { Box, Typography, IconButton, styled, BoxProps } from '@mui/material';
+import { Box, Typography, IconButton, styled, type BoxProps } from '@mui/material';
 import { Styles } from '../../types';
 import vcHeader from '../../assets/png/vcHeader.png';
 

@@ -12,6 +12,7 @@ export const selectFirstMatchingPath = (
   let isImgLink = false;
   let isArrayOfObjects = false;
 
+  // eslint-disable-next-line complexity
   possiblePaths.find((item: string) => {
     const [basepath, restpath] = item?.split('[*].') || [''];
 
@@ -24,10 +25,11 @@ export const selectFirstMatchingPath = (
     if (!!restpath && Array.isArray(basePathResult) && basePathResult.length) {
       // eslint-disable-next-line better-mutation/no-mutation
       isArrayOfObjects = true;
-      result = basePathResult[0].map((el, i) => {
-        // eslint-disable-next-line better-mutation/no-mutation
-        return [JSONPath({ path: `$.${restpath}`, json: el }) || '', i, basepath];
-      });
+      result = basePathResult[0].map((el, i) => [
+        JSONPath({ path: `$.${restpath}`, json: el }) || '',
+        i,
+        basepath,
+      ]);
     } else {
       result = basePathResult;
     }

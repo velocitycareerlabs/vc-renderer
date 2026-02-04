@@ -1,7 +1,7 @@
 import { colors } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import { typography } from './typography';
 import { CredentialStatusEnum, CredentialCategoryEnum } from '../types';
+import { typography } from './typography';
 
 export type ThemeType = typeof theme;
 declare module '@mui/material/styles' {

@@ -1,9 +1,9 @@
-import { Box, Theme, css, styled } from '@mui/material';
+import { Box, css, styled } from '@mui/material';
+import type { Theme } from '@mui/material/styles';
 import { CredentialCategoryEnum } from '../../../types';
 
-export const getBoxColor = (theme: Theme, category: CredentialCategoryEnum) => {
-  return theme.palette.category[category];
-};
+export const getBoxColor = (theme: Theme, category: CredentialCategoryEnum) =>
+  theme.palette.category[category];
 
 export const CategoryBox: any = styled(Box)<{ category: CredentialCategoryEnum }>`
   display: flex;

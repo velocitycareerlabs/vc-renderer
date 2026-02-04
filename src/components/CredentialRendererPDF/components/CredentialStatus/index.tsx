@@ -18,18 +18,16 @@ const iconsMap = {
   [CredentialStatusEnum.SELF_REPORTED]: null,
 };
 
-export const CredentialStatus = ({ status }) => {
-  return (
-    <View
-      style={[
-        style.container,
-        {
-          backgroundColor: statusColor[status] || fallbackBackground,
-        },
-      ]}
-    >
-      <Image style={style.icon} src={iconsMap[status] || fallbackImage} />
-      <Text style={style.text}>{status}</Text>
-    </View>
-  );
-};
+export const CredentialStatus = ({ status }) => (
+  <View
+    style={[
+      style.container,
+      {
+        backgroundColor: statusColor[status] || fallbackBackground,
+      },
+    ]}
+  >
+    <Image style={style.icon} src={iconsMap[status] || fallbackImage} />
+    <Text style={style.text}>{status}</Text>
+  </View>
+);

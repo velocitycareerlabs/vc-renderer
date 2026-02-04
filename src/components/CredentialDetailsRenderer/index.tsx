@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ThemeProvider } from '@emotion/react';
-import { FieldList } from './components/FieldList';
-import { useTrackScrollToChangeBottomGradientVisibility } from './hooks/useTrackScrollToChangeBottomGradientVisibility';
 import { CredentialStatus } from '../common/CredentialStatus';
 import { CredentialCategory } from '../common/CredentialCategory';
 import { Attachments } from '../common/Attachments';
-import { Issuer } from './components/Issuer';
 import { theme } from '../../theme';
 import { usePrepareCredentialDetails } from '../../hooks';
 import { setFallbackImage } from '../../utils/images';
 import { CloseWhite } from '../../assets/svg';
 import { CredentialDetailsRendererProps, CredentialRawData, CredentialPrepared } from '../../types';
+import { Issuer } from './components/Issuer';
+import { useTrackScrollToChangeBottomGradientVisibility } from './hooks/useTrackScrollToChangeBottomGradientVisibility';
+import { FieldList } from './components/FieldList';
 import {
   Content,
   BottomGradient,
@@ -44,6 +44,7 @@ import {
  * @returns - React.FC
  */
 
+// eslint-disable-next-line complexity
 export const CredentialDetailsRenderer: React.FC<CredentialDetailsRendererProps> = ({
   credentialData,
   credentialStatus,

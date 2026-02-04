@@ -1,7 +1,7 @@
 import React from 'react';
-import { StatusBox } from './styles';
 import { Check, Replaced, Revoked, Expired } from '../../../assets/svg';
 import { CredentialStatusEnum } from '../../../types';
+import { StatusBox } from './styles';
 
 const iconsMap = {
   [CredentialStatusEnum.OFFERED]: <Check />,
@@ -19,10 +19,8 @@ type CredentialStatusType = {
   isDetails?: boolean;
 };
 
-export const CredentialStatus: React.FC<CredentialStatusType> = ({ status, isDetails }) => {
-  return (
-    <StatusBox status={status} data-testid={status} isDetails={isDetails}>
-      {iconsMap[status]} <span>{status}</span>
-    </StatusBox>
-  );
-};
+export const CredentialStatus: React.FC<CredentialStatusType> = ({ status, isDetails }) => (
+  <StatusBox status={status} data-testid={status} isDetails={isDetails}>
+    {iconsMap[status]} <span>{status}</span>
+  </StatusBox>
+);
