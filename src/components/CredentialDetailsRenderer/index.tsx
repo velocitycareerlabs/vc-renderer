@@ -82,7 +82,7 @@ export const CredentialDetailsRenderer: React.FC<CredentialDetailsRendererProps>
 
   return (
     <ThemeProvider theme={theme}>
-      <Content hasScrollBar style={style}>
+      <Content hasScrollBar styleOverrides={style}>
         <>
           <ModalHeader id="vcDetailsHeader">
             <IconsBlock>

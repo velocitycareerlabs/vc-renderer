@@ -1,20 +1,28 @@
 import { Box, type BoxProps, CardActionArea, IconButton, Typography, styled } from '@mui/material';
-import { Styles } from '../../../../types';
+import type { CSSObject } from '@mui/material/styles';
+import type { Styles } from '../../../../types';
 import { NewCredential } from '../NewCredential';
+
+const shouldForwardSelectedProp = (prop: PropertyKey) =>
+  prop !== 'selected' && prop !== 'styleOverrides';
 
 interface CustomBoxProps extends BoxProps {
   selected?: boolean;
-  style?: Styles;
+  styleOverrides?: Styles;
 }
-export const Container: any = styled(Box)<CustomBoxProps>(({ selected, style }) => ({
+export const Container: any = styled(Box, {
+  shouldForwardProp: shouldForwardSelectedProp,
+})<CustomBoxProps>(({ selected, styleOverrides }) => ({
   position: 'relative',
   overflowWrap: 'anywhere',
   width: '352px',
   border: selected ? 'none' : '1px solid transparent',
-  ...style,
+  ...(styleOverrides as CSSObject | undefined),
 }));
 
-export const ActionContainer: any = styled(CardActionArea)<{ selected: boolean }>`
+export const ActionContainer: any = styled(CardActionArea, {
+  shouldForwardProp: (prop) => prop !== 'selected',
+})<{ selected: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -85,7 +93,9 @@ export const IconBox: any = styled(Box)`
   margin-right: -15px;
 `;
 
-export const CheckIconBox: any = styled(IconButton)<{ selected: boolean }>`
+export const CheckIconBox: any = styled(IconButton, {
+  shouldForwardProp: (prop) => prop !== 'selected',
+})<{ selected: boolean }>`
   box-sizing: content-box;
   position: absolute;
   right: 0px;
@@ -106,7 +116,9 @@ export const CheckIconBox: any = styled(IconButton)<{ selected: boolean }>`
   }
 `;
 
-export const CheckIconContent: any = styled(Box)<{ selected: boolean }>`
+export const CheckIconContent: any = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'selected',
+})<{ selected: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;

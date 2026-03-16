@@ -1,5 +1,4 @@
-import React from 'react';
+import type { Dictionary } from './Dictionary';
 
-export type Styles = {
-  [key: string]: React.CSSProperties;
-};
+// Keep the public style prop permissive for existing consumers.
+export type Styles = Dictionary<any>;

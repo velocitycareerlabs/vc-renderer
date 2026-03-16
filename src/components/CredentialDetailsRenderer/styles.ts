@@ -1,22 +1,28 @@
 import { Box, Typography, IconButton, styled, type BoxProps } from '@mui/material';
-import { Styles } from '../../types';
+import type { CSSObject } from '@mui/material/styles';
+import type { Styles } from '../../types';
 import vcHeader from '../../assets/png/vcHeader.png';
 
-export const Content: any = styled(Box)<{ hasScrollBar: boolean; style: Styles }>`
-  outline: 0;
-  background-color: ${({ theme }) => theme.palette.background.default};
-  border-radius: 32px;
-  position: relative;
-  padding: 0;
-  padding-bottom: 40px;
-  max-width: 996px;
-  width: 100%;
-  box-shadow: 0px 1px 2px 0px rgba(159, 177, 201, 0.2);
-  ${({ theme }) => theme.breakpoints.down('sm')} {
-    border-radius: 0px;
-  }
-  ${({ style }) => ({ ...style })}
-`;
+const shouldForwardStyleProp = (prop: PropertyKey) =>
+  prop !== 'styleOverrides' && prop !== 'hasScrollBar';
+
+export const Content: any = styled(Box, {
+  shouldForwardProp: shouldForwardStyleProp,
+})<{ hasScrollBar: boolean; styleOverrides?: Styles }>(({ theme, styleOverrides }) => ({
+  outline: 0,
+  backgroundColor: theme.palette.background.default,
+  borderRadius: '32px',
+  position: 'relative',
+  padding: 0,
+  paddingBottom: '40px',
+  maxWidth: '996px',
+  width: '100%',
+  boxShadow: '0px 1px 2px 0px rgba(159, 177, 201, 0.2)',
+  [theme.breakpoints.down('sm')]: {
+    borderRadius: '0px',
+  },
+  ...(styleOverrides as CSSObject | undefined),
+}));
 
 export const ModalContent: any = styled(Box)<{ hasScrollBar: boolean }>`
   outline: 0;
@@ -169,7 +175,9 @@ export const ModalHeader: any = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ScrollableContent: any = styled(Box)<{ hasScrollBar: boolean }>`
+export const ScrollableContent: any = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'hasScrollBar',
+})<{ hasScrollBar: boolean }>`
   height: 100%;
   max-height: 590px;
   overflow-y: auto;

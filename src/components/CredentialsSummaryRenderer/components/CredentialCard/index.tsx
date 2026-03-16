@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import { CredentialStatus } from '../../../common/CredentialStatus';
 import { setFallbackImage } from '../../../../utils/images';
 import { Check } from '../../../../assets/svg';
-import { CredentialStatusEnum } from '../../../../types';
+import { CredentialStatusEnum, type Styles } from '../../../../types';
 import {
   ActionContainer,
   CheckIconBox,
@@ -48,7 +48,7 @@ export const CredentialCard = ({
   isShort?: boolean;
   showTickElement?: boolean;
   Footer?: React.FC<{ credentialId: string }>;
-  style?: React.CSSProperties;
+  style?: Styles;
   isNewCredential?: boolean;
 }) => {
   const tickElement = useRef<HTMLDivElement>(null);
@@ -71,7 +71,7 @@ export const CredentialCard = ({
   const onSelectCallback = () => onSelect(id);
 
   return (
-    <Container selected={selected} style={style}>
+    <Container selected={selected} styleOverrides={style}>
       <ActionContainer
         onClick={onClickCallback}
         selected={selected}
