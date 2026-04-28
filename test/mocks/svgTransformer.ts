@@ -1,5 +1,6 @@
 const path = require('path');
-const camelcase = require('camelcase');
+const camelcaseModule = require('camelcase');
+const camelcase = camelcaseModule.default || camelcaseModule;
 
 // This is a custom Jest transformer turning file imports into filenames.
 // http://facebook.github.io/jest/docs/en/webpack.html
@@ -17,10 +18,7 @@ module.exports = {
       const componentName = `Svg${pascalCaseFilename}`;
       return {
         code: `const React = require('react');
-            module.exports = {
-                __esModule: true,
-                default: ${assetFilename},
-                ReactComponent: React.forwardRef(function ${componentName}(props, ref) {
+            const Component = React.forwardRef(function ${componentName}(props, ref) {
                 return {
                     $$typeof: Symbol.for('react.element'),
                     type: 'svg',
@@ -30,7 +28,11 @@ module.exports = {
                     children: ${assetFilename}
                     })
                 };
-                }),
+            });
+            module.exports = {
+                __esModule: true,
+                default: Component,
+                ReactComponent: Component,
             };`,
       };
     }

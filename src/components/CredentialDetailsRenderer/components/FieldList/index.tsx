@@ -1,6 +1,6 @@
 import React from 'react';
 import type { BoxProps } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import type { CredentialDetailsItem } from '../../../../types';
 import { Field } from '../Field';
 import {
