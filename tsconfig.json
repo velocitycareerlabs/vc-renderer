@@ -32,7 +32,6 @@
   "exclude": [
     "node_modules",
     "dist",
-    ".eslintrc.js",
   ],
   "parserOptions":  {
     "ecmaVersion":  "2022",

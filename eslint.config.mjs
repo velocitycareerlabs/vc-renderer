@@ -1,5 +1,5 @@
 import path from 'node:path';
-import {fileURLToPath} from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { createTypeScriptReactConfig, testFilesRules } from '../../eslint.config.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -7,7 +7,6 @@ export default createTypeScriptReactConfig({
   tsconfigPath: `${__dirname}/tsconfig.json`,
   ignores: [
     'secrets.js',
-    '.eslintrc.js',
     '.prettierrc.js',
     'babel.config.jest.js',
     'rollup.config.js',
