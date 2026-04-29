@@ -1,5 +1,5 @@
 const { resolve } = require('path');
-const { defaults: tsjPreset } = require('ts-jest/presets/index.js');
+const { defaults: tsjPreset } = require('ts-jest/presets/index');
 const packagejson = require('./package.json');
 
 module.exports = {
@@ -15,13 +15,15 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
+    '^react$': resolve(__dirname, 'node_modules/react'),
+    '^react-dom$': resolve(__dirname, 'node_modules/react-dom'),
     '^.+\\.png$': '<rootDir>/test/mocks/fileMock.ts',
     '^@/(.*)$': '<rootDir>/src/$1',
     '^lodash-es$': 'lodash',
   },
   transformIgnorePatterns: [
-    '/node_modules/(?!(jsonpath-plus)|(uuid)|(mui-one-time-password-input)|(mui-tel-input)/)',
-    '/node_modules/(?!(lodash-es)/)',
+    '/node_modules/.pnpm/(?!(jsonpath-plus|uuid|mui-one-time-password-input|mui-tel-input|lodash-es)@)',
+    '/node_modules/(?!(\\.pnpm|jsonpath-plus|uuid|mui-one-time-password-input|mui-tel-input|lodash-es)/)',
   ],
   verbose: true,
   testTimeout: 20000,
