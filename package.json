@@ -26,7 +26,7 @@
     "build": "rollup -c",
     "test": "jest",
     "test:ci": "jest --config ./jest.config.js --runInBand --coverage",
-    "publish-test": "npm run prepublish && npm run build && npm pack",
+    "publish-test": "pnpm run prepublish && pnpm run build && pnpm pack",
     "postinstall": "if test \"$NODE_ENV\" != \"production\" ; then pnpm build ; fi"
   },
   "dependencies": {

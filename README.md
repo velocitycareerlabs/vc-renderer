@@ -29,10 +29,10 @@ This library provides hooks and components to map credential objects to descript
 
 ## Installation
 
-Install the library using Yarn:
+Install the library using pnpm:
 
 ```bash
-yarn add @velocitycareerlabs/vc-renderer
+pnpm add @velocitycareerlabs/vc-renderer
 ```
 ---
 
