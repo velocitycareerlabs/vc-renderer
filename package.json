@@ -30,7 +30,7 @@
     "postinstall": "if test \"$NODE_ENV\" != \"production\" ; then case \"$PWD\" in */node_modules/*) ;; *) pnpm build ;; esac ; fi"
   },
   "dependencies": {
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.0.0",
     "jsonpath-plus": "^10.2.0",
     "lodash-es": "^4.18.1"
   },
