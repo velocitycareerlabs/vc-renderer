@@ -27,7 +27,7 @@
     "test": "jest",
     "test:ci": "jest --config ./jest.config.js --runInBand --coverage",
     "publish-test": "pnpm run prepublish && pnpm run build && pnpm pack",
-    "postinstall": "if test \"$NODE_ENV\" != \"production\" ; then pnpm build ; fi"
+    "postinstall": "if test \"$NODE_ENV\" != \"production\" ; then case \"$PWD\" in */node_modules/*) ;; *) pnpm build ;; esac ; fi"
   },
   "dependencies": {
     "date-fns": "^3.6.0",
