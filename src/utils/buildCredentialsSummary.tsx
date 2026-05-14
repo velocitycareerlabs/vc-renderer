@@ -3,12 +3,12 @@ import { Issuer, CredentialSummary, DisplayDescriptor, Credential } from '../typ
 import { credentialValueFromJSONPath } from './credentialValueFromJSONPath';
 import { getLocale } from './dates';
 
-// eslint-disable-next-line complexity
 export const buildCredentialsSummary = (
   credential: Credential,
   displayDescriptor: DisplayDescriptor,
   issuer: Issuer | null,
   localeSelected?: string,
+  // eslint-disable-next-line complexity
 ): CredentialSummary => {
   const locale = localeSelected || getLocale();
 

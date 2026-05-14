@@ -19,7 +19,6 @@ import {
   FooterBox,
 } from './styles';
 
-// eslint-disable-next-line complexity
 export const CredentialCard = ({
   id,
   logo,
@@ -50,6 +49,7 @@ export const CredentialCard = ({
   Footer?: React.FC<{ credentialId: string }>;
   style?: Styles;
   isNewCredential?: boolean;
+  // eslint-disable-next-line complexity
 }) => {
   const tickElement = useRef<HTMLDivElement>(null);
 

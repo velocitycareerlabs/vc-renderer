@@ -44,7 +44,6 @@ import {
  * @returns - React.FC
  */
 
-// eslint-disable-next-line complexity
 export const CredentialDetailsRenderer: React.FC<CredentialDetailsRendererProps> = ({
   credentialData,
   credentialStatus,
@@ -54,6 +53,7 @@ export const CredentialDetailsRenderer: React.FC<CredentialDetailsRendererProps>
   Footer,
   Sidebar,
   onClose,
+  // eslint-disable-next-line complexity
 }: CredentialDetailsRendererProps) => {
   const [credentialPrepared, setCredentialPrepared] = useState<CredentialPrepared>();
 

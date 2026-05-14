@@ -17,12 +17,12 @@ import {
  * @param {string}  [locale='en-US']  - locale string. Default is 'en-US'
  * @returns {CredentialPrepared} - object with summary and details keys
  */
-// eslint-disable-next-line complexity
 const prepareCredentialDetails: PrepareCredentialDetails = (
   credential: Credential,
   descriptor: DisplayDescriptor,
   issuer: Issuer,
   locale: string = 'en-US',
+  // eslint-disable-next-line complexity
 ): CredentialPrepared => {
   let vcIssuer: Issuer | null = null;
 

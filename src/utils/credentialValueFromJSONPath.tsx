@@ -36,12 +36,12 @@ const formatValueIfDate = (value: string, format: string, dateFormat: string) =>
   return value;
 };
 
-// eslint-disable-next-line complexity
 export const credentialValueFromJSONPath = (
   displayDescriptor: DisplayDescriptor | DisplayDescriptorPropertyItem,
   subject: object,
   dateFormat: string,
   path: keyof DisplayDescriptor | string = '',
+  // eslint-disable-next-line complexity
 ) => {
   const { format } = getDisplayDescriptorFieldByObjectPath(displayDescriptor, 'schema', path) || {};
   const fallback = getDisplayDescriptorFieldByObjectPath(displayDescriptor, 'fallback', path);
