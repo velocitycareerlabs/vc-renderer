@@ -17,6 +17,78 @@ describe('CredentialsSummaryRenderer Component', () => {
     issuers: ISSUERS,
   };
 
+  const credentialsRawDataWithUnsupportedDates: CredentialsRawData = {
+    credentials: [
+      {
+        credentialSubject: {
+          startMonthYear: {
+            month: 2,
+            year: 2015,
+          },
+        },
+        id: 'employment-credential',
+        issuer: { id: 'synthetic-issuer' },
+        type: ['CurrentEmploymentPosition', 'VerifiableCredential'],
+      },
+      {
+        credentialSubject: {
+          endMonthYear: 'not-a-date',
+        },
+        id: 'education-credential',
+        issuer: { id: 'synthetic-issuer' },
+        type: ['EducationDegree', 'VerifiableCredential'],
+      },
+      {
+        credentialSubject: {},
+        id: 'education-credential-without-date',
+        issuer: { id: 'synthetic-issuer' },
+        type: ['EducationDegree', 'VerifiableCredential'],
+      },
+      {
+        credentialSubject: {
+          endMonthYear: '2026-02-31',
+        },
+        id: 'education-credential-with-impossible-date',
+        issuer: { id: 'synthetic-issuer' },
+        type: ['EducationDegree', 'VerifiableCredential'],
+      },
+      {
+        credentialSubject: {
+          endMonthYear: '2026-02-31T00:00:00Z',
+        },
+        id: 'education-credential-with-impossible-date-time',
+        issuer: { id: 'synthetic-issuer' },
+        type: ['EducationDegree', 'VerifiableCredential'],
+      },
+    ],
+    descriptors: {
+      CurrentEmploymentPosition: {
+        title: { text: 'Current employment' },
+        subtitle: { text: 'Synthetic credential' },
+        summary_detail: {
+          path: ['$.credentialSubject.startMonthYear'],
+          schema: { format: 'date' },
+          fallback: 'Not provided',
+        },
+      },
+      EducationDegree: {
+        title: { text: 'Education degree' },
+        subtitle: { text: 'Synthetic credential' },
+        summary_detail: {
+          path: ['$.credentialSubject.endMonthYear'],
+          schema: { format: 'date' },
+          fallback: 'Not provided',
+        },
+      },
+    },
+    issuers: {
+      'synthetic-issuer': {
+        id: 'synthetic-issuer',
+        name: 'Synthetic issuer',
+      },
+    },
+  };
+
   const renderComponent = (props = {}) => {
     const defaultProps = {
       credentialsData: { credentialsPrepared },
@@ -74,6 +146,14 @@ describe('CredentialsSummaryRenderer Component', () => {
     expect(screen.getAllByText('replaced').length).toBe(1);
     expect(screen.getAllByText('expired').length).toBe(1);
     expect(screen.getAllByRole('checkbox').length).toBe(7);
+  });
+
+  it('renders employment and education credentials with safe fallbacks for unsupported dates', () => {
+    renderComponent({ credentialsData: credentialsRawDataWithUnsupportedDates });
+
+    expect(screen.getByText('Current employment')).toBeInTheDocument();
+    expect(screen.getAllByText('Education degree')).toHaveLength(4);
+    expect(screen.getAllByText('Not provided')).toHaveLength(5);
   });
 
   it('calls onClick when a card is clicked', () => {
