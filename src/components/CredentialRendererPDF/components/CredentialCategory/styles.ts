@@ -16,7 +16,7 @@ export const style = StyleSheet.create({
   credentialCategoryIcon: {
     width: '15px',
     height: '15px',
-    borderRadius: '50%',
+    borderRadius: '7.5px',
   },
   credentialCategoryText: {
     fontSize: '8px',
