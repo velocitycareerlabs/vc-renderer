@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createTypeScriptReactConfig, testFilesRules } from '../../eslint.config.mjs';
+import { createTypeScriptReactConfig, testFilesRules } from './tooling/eslint-shared.config.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default createTypeScriptReactConfig({
@@ -9,7 +9,8 @@ export default createTypeScriptReactConfig({
     'secrets.js',
     '.prettierrc.js',
     'babel.config.jest.js',
-    'rollup.config.js',
+    'rollup.config.mjs',
+    'tooling/**',
     'jest.config.js',
     'eslint.config.mjs',
     'test/**',

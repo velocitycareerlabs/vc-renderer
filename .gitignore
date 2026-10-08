@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+*.tgz
+*.tsbuildinfo
+test-results.junit.xml
+.env
+.env.*
+.DS_Store
