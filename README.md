@@ -17,7 +17,7 @@ pnpm build
 pnpm test:ci
 ```
 
-The build creates CommonJS and ES module bundles plus TypeScript declarations in `dist/`. The tests include a real React PDF rendering test that validates the generated PDF header, page count, and extracted text.
+The build creates CommonJS and ES module bundles plus TypeScript declarations in `dist/`. The ES module bundle targets browser bundlers; direct Node.js consumers should use the CommonJS entry because Material UI 6 uses directory imports that native Node.js ESM does not resolve. The tests include a real React PDF rendering test that validates the generated PDF header, page count, and extracted text.
 
 ## Use in another application
 
